@@ -15,25 +15,14 @@ function PaymentDetails(){
             setTotal(totalItem)
     },[totalItem])
     
-    // setProgressBar(ProgressBar=2)
     
     const navigate=useNavigate()
 
-    // const res= await fetch("http://localhost:8000/wishlists/unsaveWishlist",{
-    //     method: "DELETE",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ 
-    //         user_id: user._id,
-    //         product_id: data._id 
-    //     }),
-    //   })
     async function orderhandler(){
         let respose=[]
         try {
             for(let i=0;i<cartItem.length;i++){
-                respose = await fetch("http://localhost:8000/orders",{
+                respose = await fetch("https://supamart-v-backend.onrender.com/orders",{
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -53,7 +42,7 @@ function PaymentDetails(){
         }
         try {
             for(let i=0;i<cartItem.length;i++){
-                respose = await fetch("http://localhost:8000/products/UpdateQuantityByOrder",{
+                respose = await fetch("https://supamart-v-backend.onrender.com/products/UpdateQuantityByOrder",{
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",

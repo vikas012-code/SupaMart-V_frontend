@@ -20,7 +20,7 @@ function Dashboard({props}){
     let todaytotal=0
 
     useEffect(()=>{
-        fetch("http://localhost:8000/orders/recentOrder")
+        fetch("https://supamart-v-backend.onrender.com/orders/recentOrder")
         .then((res)=> res.json())
         .then((res)=> setRecentOrder(res))
         .catch((err)=> console.log(err))

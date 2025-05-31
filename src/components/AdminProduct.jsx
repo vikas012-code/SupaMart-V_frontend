@@ -7,7 +7,7 @@ function AdminProduct() {
 
     async function AddQuantity(data,quantity){
         try {
-            let respose = await fetch("http://localhost:8000/products/UpdateQuantityByAdding",{
+            let respose = await fetch("https://supamart-v-backend.onrender.com/products/UpdateQuantityByAdding",{
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function AdminProduct() {
 
     async function AddNewProduct(){
         try {
-            respose = await fetch("http://localhost:8000/products",{
+            respose = await fetch("https://supamart-v-backend.onrender.com/products",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

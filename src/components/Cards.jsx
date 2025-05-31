@@ -22,7 +22,7 @@ function Cards({data}){
     }
     async function deletingWishList(data) {
         console.log("deleting wiushlist")
-        const res= await fetch("http://localhost:8000/wishlists/unsaveWishlist",{
+        const res= await fetch("https://supamart-v-backend.onrender.com/wishlists/unsaveWishlist",{
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function Cards({data}){
     }
 
     async function addingWishList(data){
-        const res=await fetch("http://localhost:8000/wishlists",{
+        const res=await fetch("https://supamart-v-backend.onrender.com/wishlists",{
             method: "POST",
             headers: {
               "Content-Type": "application/json",

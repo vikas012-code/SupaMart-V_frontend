@@ -21,7 +21,7 @@ function AdminPanel(){
     let total=0
 
     useEffect(()=>{
-        fetch("http://localhost:8000/orders")
+        fetch("https://supamart-v-backend.onrender.com/orders")
         .then((res)=> res.json())
         .then((res)=> setTotalOrder(res))
         .catch((err)=> console.log(err))

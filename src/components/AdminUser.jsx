@@ -11,7 +11,7 @@ function AdminUser({props}) {
     const [totalusers,setTotalUsers]=useState([])
 
     useEffect(()=>{
-        fetch("http://localhost:8000/user")
+        fetch("https://supamart-v-backend.onrender.com/user")
         .then((res)=> res.json())
         .then((res)=> setTotalUsers(res))
         .catch((err)=> console.log(err))
@@ -19,7 +19,7 @@ function AdminUser({props}) {
     
     function DeleteAccount(UserID){
         try {
-          fetch("http://localhost:8000/user/deleteuserbyid",
+          fetch("https://supamart-v-backend.onrender.com/user/deleteuserbyid",
             {
             method: "DELETE",
             headers: {

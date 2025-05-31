@@ -32,7 +32,7 @@ function LoginPage(){
     
     async function SaveData(){
         let encryptPassword=encrypt(formData.Password);
-        const response = await fetch("http://localhost:8000/user", {
+        const response = await fetch("https://supamart-v-backend.onrender.com/user", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -65,7 +65,7 @@ function LoginPage(){
 
     async function loginData() {
         try {
-            const response = await fetch("http://localhost:8000/user/getuserbyemail", {
+            const response = await fetch("https://supamart-v-backend.onrender.com/user/getuserbyemail", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

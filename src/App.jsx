@@ -86,7 +86,7 @@ const [ShippingAddress,setShippingAddress]=useState({
 
 
   useEffect(()=>{
-    fetch("http://localhost:8000/products")
+    fetch("https://supamart-v-backend.onrender.com/products")
     .then((res)=> res.json())
     .then((res)=>setDatas(res))
     .catch((err)=>{console.log(err)})
@@ -99,7 +99,7 @@ useEffect(() =>{
   //console.log("wishlist calling..")
   if(user._id){
     try {
-      fetch("http://localhost:8000/wishlists/byId",
+      fetch("https://supamart-v-backend.onrender.com/wishlists/byId",
         {
         method: "POST",
         headers: {
@@ -132,7 +132,7 @@ useEffect(() =>{
   //console.log("order calling..")
   if(user._id){
   try {
-    fetch("http://localhost:8000/orders/byId",
+    fetch("https://supamart-v-backend.onrender.com/orders/byId",
       {
       method: "POST",
       headers: {
