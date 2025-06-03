@@ -58,7 +58,8 @@ function LoginPage(){
             setFormData({...formData,
                 UserName:"",
                 Email:"",
-                Password:""
+                Password:"",
+                otp:""
             })
           }
     }
@@ -140,87 +141,244 @@ function LoginPage(){
         
     }
 
+    async function sendOTP(){
+        try {
+            const response = await fetch("https://supamart-v-backend.onrender.com/user/sendotp", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email:formData.Email,
+                }),
+              });
+              if(response.ok){
+                const res=await response.json()
+                console.log(res)
+                setFormType("sendotp")
+                }
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
+    async function verifyOTP(){
+        try {
+            const response = await fetch("https://supamart-v-backend.onrender.com/user/verifyotp", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email:formData.Email,
+                    otp:formData.otp,
+                }),
+              });
+              if(response.ok){
+                const res=await response.json()
+                console.log(res)
+                setFormType("newpassword")
+                }
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
+    async function SaveNewPassword(){
+        let encryptPassword=encrypt(formData.Password);
+        const response = await fetch("https://supamart-v-backend.onrender.com/user/resetpassword", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                email:formData.Email,
+                password:encryptPassword 
+            }),
+          });
+          if(response.ok){
+            //console.log(response.json())
+            setUserExit(false)
+            setFormData({...formData,
+                Email:"",
+                Password:""
+            })
+            setFormType("login")
+          }
+          else{
+            //console.log(response.json())
+            setUserExit(true)
+            setFormData({...formData,
+                Email:"",
+                Password:"",
+                otp:""
+            })
+          }
+    }
+
     return(
     <>
     {Auth==null &&
         <div className="flex justify-center items-center bg-white ">
-        <div className="bg-white pb-5 w-[40vh] flex flex-col items-center rounded-2xl  shadow-gray-300 mt-10 mb-10  z-10 fixed top-50">
-            <button className="w-8 h-8 absolute top-1 right-0.5 cursor-pointer" onClick={()=>{
-                setAuth("")
-            }}><img className="w-7" src={cancel_img} alt="" /></button>
-            <h3 className="text-4xl font-bold mt-10">{formType=="login"?"Login":"Register"}</h3>
-            <form onSubmit={(e)=>{
-                e.preventDefault()
-                setFormData({...formData})
-            }} className="flex flex-col">
-                {   formType==="sign up" 
+            <div className="bg-white pb-5 w-[40vh] flex flex-col items-center rounded-2xl  shadow-gray-300 mt-10 mb-10  z-10 fixed top-50">
+                <button className="w-8 h-8 absolute top-1 right-0.5 cursor-pointer" onClick={()=>{
+                    setAuth("")
+                }}><img className="w-7" src={cancel_img} alt="" />
+                </button>
+                <h3 className="text-3xl font-bold mt-10 mb-4">{formType=="login"?"Login":formType=="forgetpassword"?"ForgetPassword":"Register"}</h3>
+                <form onSubmit={(e)=>{
+                    e.preventDefault()
+                    setFormData({...formData})
+                    }} className="flex flex-col"
+                >
+                    {   formType==="sign up" 
+                        &&
+                        <>
+                        <label className=" ml-2" htmlFor="Name">Name</label>
+                        <input type="text" className="border rounded-lg pl-1 p-1" name="Name" value={formData.UserName}  onChange={(e)=>{
+                            setFormData({...formData ,UserName:e.target.value})
+
+                        }} />
+                        </>
+                    }
+
+                    {
+                    (formType==="sign up" || formType==="login"||formType==="forgetpassword")
                     &&
                     <>
-                    <label className=" ml-2" htmlFor="Name">Name</label>
-                    <input type="text" className="border rounded-lg pl-1 p-1" name="Name" value={formData.UserName}  onChange={(e)=>{
-                        setFormData({...formData ,UserName:e.target.value})
-    
+                        <label className=" ml-2" htmlFor="Name">Email</label>
+                    <input type="email" className="border rounded-lg pl-1 p-1" name="Name" value={formData.Email}  onChange={(e)=>{
+                        setFormData({...formData ,Email:e.target.value})
+
                     }} />
                     </>
-                }
+                    }
 
-                <label className=" ml-2" htmlFor="Name">Email</label>
-                <input type="email" className="border rounded-lg pl-1 p-1" name="Name" value={formData.Email}  onChange={(e)=>{
-                    setFormData({...formData ,Email:e.target.value})
-
-                }} />
-
-                <label className="mt-5 ml-2 " htmlFor="Password">Password</label>
-                <input type="password" className=" border rounded-lg pl-1 p-1" name="Password" value={formData.Password} onChange={(e)=>{
-                    setFormData({...formData ,Password:e.target.value})
-
-                }} />
-                <p className="ml-2 text-sm text-gray-300 w-60">Username and Password must be more the 4 characters and unique </p>
-
-                <div className="flex justify-around">
-                {
-                    formType=="login" 
-                    && 
-                    <div className="flex flex-col items-center gap-2">
-                        <button className=" mt-4 rounded-sm bg-blue-400 text-white  hover:bg-green-400 duration-300 w-23" onClick={(e)=>{   
-                        formData.Email==="admin@gmail.com"?setUser({...user,UserName:"admin",Email:formData.Email,Password:formData.Password}) || setAuth("admin") 
-                        || setFormData({...formData,
-                            UserName:"",
-                            Email:"",
-                            Password:""
-                        })
-                        :
-                        formData.Password.length>4 
-                        && 
-                        loginData()
                     
-                    }}>Login</button>
-                    <p className="">Don't have Account?<a className="cursor-pointer text-green-600 hover:underline" onClick={()=>{
-                        setFormType("sign up")
-                    }}>Sign up</a></p>
-                    </div>
-                }
-                {
-                    formType=="sign up" 
+                    {
+                    (formType==="sign up" || formType==="login" || formType==="newpassword")
                     &&
-                    <div className="flex flex-col items-center gap-2">
-                        <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
-                        SetDataAtDB()
-                        }}>Register</button>
-                        <p className="">Already have Account?<a className=" cursor-pointer text-green-600 hover:underline" onClick={()=>{
-                        setFormType("login")
-                    }}>Login</a></p>
+                    <>
+                    <label className="mt-5 ml-2 " htmlFor="Password">{formType==="newpassword"&& "New"} Password</label>
+                    <input type="password" className=" border rounded-lg pl-1 p-1" name="Password" value={formData.Password} onChange={(e)=>{
+                        setFormData({...formData ,Password:e.target.value})
+
+                    }} />
+                    </>
+                    }
+
+                    {
+                    formType=="sendotp"
+                    &&
+                    <>
+                    <label className="mt-5 ml-2 " >OTP</label>
+                    <input type="number" className=" border rounded-lg pl-1 p-1"  value={formData.otp} onChange={(e)=>{
+                        setFormData({...formData ,otp:e.target.value})
+
+                    }} />
+                    </>
+                    }
+
+
+
+
+
+                    <p className="ml-2 text-sm text-gray-300 w-60">Username and Password must be more the 4 characters and unique </p>
+                    
+                    {
+                    formType=="login" 
+                    &&
+                    <button className="flex justify-end text-cyan-600 cursor-pointer hover:underline" onClick={()=>{
+                        setFormType("forgetpassword")
+                    }}>
+                        ForgetPassword
+                    </button>
+                    }
+
+
+
+
+                    <div className="flex justify-around">
+                    {
+                        formType=="login" 
+                        && 
+                        <div className="flex flex-col items-center gap-2">
+                            <button className=" mt-4 rounded-sm bg-blue-400 text-white  hover:bg-green-400 duration-300 w-23" onClick={(e)=>{   
+                            formData.Email==="admin@gmail.com"?setUser({...user,UserName:"admin",Email:formData.Email,Password:formData.Password}) || setAuth("admin") 
+                            || setFormData({...formData,
+                                UserName:"",
+                                Email:"",
+                                Password:""
+                            })
+                            :
+                            formData.Password.length>4 
+                            && 
+                            loginData()
+                        
+                        }}>Login</button>
+                        <p className="">Don't have Account?<a className="cursor-pointer text-green-600 hover:underline" onClick={()=>{
+                            setFormType("sign up")
+                        }}>Sign up</a></p>
+                        </div>
+                    }
+                    {
+                        formType=="sign up" 
+                        &&
+                        <div className="flex flex-col items-center gap-2">
+                            <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
+                            SetDataAtDB()
+                            }}>Register</button>
+                            <p className="">Already have Account?<a className=" cursor-pointer text-green-600 hover:underline" onClick={()=>{
+                            setFormType("login")
+                        }}>Login</a></p>
+                        </div>
+                    }
+                    {
+                        formType=="forgetpassword" 
+                        &&
+                        <div className="flex flex-col items-center gap-2">
+                            <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
+                            formData.Email.length>0 && sendOTP()
+                            }}>send OTP</button>
+
+                            <a className=" cursor-pointer text-green-600 hover:underline " onClick={()=>{
+                            setFormType("login")
+                            }}>Login</a>
+                        </div>
+
+                    }
+
+                    {
+                        formType=="sendotp" 
+                        &&
+                        <div className="flex flex-col items-center gap-2">
+                            <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
+                            formData.otp.length>0 && verifyOTP()
+                            }}>send OTP</button>
+                        </div>
+
+                    }
+
+                    {
+                        formType=="newpassword" 
+                        &&
+                        <div className="flex flex-col items-center gap-2">
+                            <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
+                            formData.Password.length>4 && SaveNewPassword()
+                            }}>save</button>
+                        </div>
+
+                    }
+                    
                     </div>
-                }
-                </div>
-            </form>
-           
-            {passCorrect===false && <h3 className="mt-4 text-red-500">Password incorrect</h3>}
-            {userExit===true && <h3 className="mt-4 text-red-500">User Already Exit</h3>}
-            {userExit===false && <h3 className="mt-4 text-green-500">Succesfully Registered</h3>}
-        </div>
+                </form>
+                
+                {passCorrect===false && <h3 className="mt-4 text-red-500">Password incorrect</h3>}
+                {userExit===true && <h3 className="mt-4 text-red-500">User Already Exit</h3>}
+                {userExit===false && <h3 className="mt-4 text-green-500">Succesfully Registered</h3>}
+            </div>
         
-    </div>
+        </div>
     }
     </>)
 }
