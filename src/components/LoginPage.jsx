@@ -9,6 +9,9 @@ function LoginPage(){
     let _key = "secret_key"
 
     const [passCorrect,setPassCorrect]=useState(null)
+
+    const [OTPCorrect,setOTPCorrect]=useState(null)
+
     
     const [userExit,setUserExit]=useState(null)
 
@@ -156,6 +159,10 @@ function LoginPage(){
                 const res=await response.json()
                 console.log(res)
                 setFormType("sendotp")
+                setOTPCorrect(null)
+                }
+                else{
+                    setOTPCorrect(true)
                 }
         } catch (error) {
             console.log("error", error)
@@ -178,6 +185,11 @@ function LoginPage(){
                 const res=await response.json()
                 console.log(res)
                 setFormType("newpassword")
+                setOTPCorrect(null)
+
+                }
+                else{
+                    setOTPCorrect(false)
                 }
         } catch (error) {
             console.log("error", error)
@@ -338,11 +350,11 @@ function LoginPage(){
                         &&
                         <div className="flex flex-col items-center gap-2">
                             <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
-                            formData.Email.length>0 && sendOTP()
+                            formData.Email.length>0 && sendOTP() && setOTPCorrect(null)
                             }}>send OTP</button>
 
                             <a className=" cursor-pointer text-green-600 hover:underline " onClick={()=>{
-                            setFormType("login")
+                            setFormType("login") && setOTPCorrect(null)
                             }}>Login</a>
                         </div>
 
@@ -353,8 +365,11 @@ function LoginPage(){
                         &&
                         <div className="flex flex-col items-center gap-2">
                             <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
-                            formData.otp.length>0 && verifyOTP()
-                            }}>send OTP</button>
+                            formData.Email.length>0 && sendOTP() && setOTPCorrect(null)
+                            }}>resnd OTP</button>
+                            <button className=" mt-4 rounded-sm bg-blue-400 text-white hover:bg-green-400 duration-300 w-23" onClick={()=>{
+                            formData.otp.length>0 && verifyOTP() && setOTPCorrect(null)
+                            }}>verify OTP</button>
                         </div>
 
                     }
@@ -372,7 +387,8 @@ function LoginPage(){
                     
                     </div>
                 </form>
-                
+                {OTPCorrect===false && <h3 className="mt-4 text-red-500">invalid OTP</h3>}
+                {OTPCorrect===true && <h3 className="mt-4 text-red-500">invalid Email</h3>}
                 {passCorrect===false && <h3 className="mt-4 text-red-500">Password incorrect</h3>}
                 {userExit===true && <h3 className="mt-4 text-red-500">User Already Exit</h3>}
                 {userExit===false && <h3 className="mt-4 text-green-500">Succesfully Registered</h3>}
