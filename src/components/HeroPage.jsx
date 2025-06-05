@@ -21,8 +21,8 @@ function HeroPage() {
           ))}
         </div> 
       )}
-      //autoplay={true}
-      //autoplayDelay={2000}
+      autoplay={true}
+      autoplayDelay={2000}
       loop={true}
       >
 
