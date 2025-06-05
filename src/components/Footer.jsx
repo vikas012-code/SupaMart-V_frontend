@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import smartphone from "../assets/smartphone.png";
+import callIcon from "../assets/call-icon.png"
+import whatappIcon from "../assets/whats-app.png"
 
 
 function Footer(){
@@ -14,9 +16,9 @@ function Footer(){
                 </Link>
                 <p className="mb-3">Contact Us</p>
                 <div>
-                    <p className="flex items-center max-lg:-ml-5"><img className="w-5" src="https://cdn-user-icons.flaticon.com/192011/192011013/1742224426646.svg?token=exp=1742225382~hmac=345ba5a5a4f5ce03d64fd710a18c2282" alt="" /> Whats App</p>
+                    <p className="flex items-center max-lg:-ml-4"><img className="w-5 max-lg:w-4" src={whatappIcon} alt="" /> Whats App</p>
                     <p className="ml-5 mb-2 max-lg:ml-0">7788996655</p>
-                    <p className="flex items-center max-lg:-ml-5"><img className="w-5" src="https://cdn-user-icons.flaticon.com/192011/192011013/1742224666106.svg?token=exp=1742225566~hmac=9fa0a8bc1fe89e5e55047fda2b26fe1f" alt="" /> Call Us</p>
+                    <p className="flex items-center max-lg:-ml-4"><img className="w-5 max-lg:w-4" src={callIcon} alt="" /> Call Us</p>
                     <p className="ml-5 max-lg:ml-0">7788996655</p>
                 </div>
             </div>
