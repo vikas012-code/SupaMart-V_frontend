@@ -63,7 +63,7 @@ function Cards({data}){
         <Link className="" to={`/product/${data?._id}`}>
             <img className="h-[65%] w-[100%] object-contain hover:scale-105 duration-300 hover:-translate-y-2 "  src={data?.image} alt={data?.title} />
             <div className=" bg-gray-100 p-3 max-lg:text-[0.6rem]">
-                <p className="min-h-12 hover:text-black text-gray-600  font-medium">{truncateString(data?.title,45)}</p>
+                <p className="min-h-10 mb-2 hover:text-black text-gray-600  font-medium">{truncateString(data?.title,45)}</p>
                 <div className="flex items-center max-lg:-mt-4">
                 <p className="flex items-center w-16 font-bold">₹{data?.price}</p>
                 {data?.discount>0 && <p className="ml-3 text-sm text-gray-400  line-through max-lg:text-xs">₹{data?.discount > 0 && (data?.price)+((data?.price)*data?.discount/100)}</p>}
