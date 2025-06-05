@@ -5,24 +5,24 @@ import smartphone from "../assets/smartphone.png";
 function Footer(){
     return (
         <>
-        <footer className="mt-2 bg-blue-500 text-white p-6">
-            <div className="flex justify-between p-3 pb-10">
+        <footer className="mt-2 bg-blue-500 text-white p-6 max-lg:text-[0.5rem]">
+            <div className="flex justify-between p-3 pb-10 max-lg:p-1 max-lg:pb-1">
             <div>
-                <Link className="ml-2 flex items-center gap-2 hover:scale-105 duration-300" to={"/"}> 
-                    <img className="w-15 h-15" src={smartphone} alt="mobileshop"/> 
-                    <h3 className="text-2xl font-extrabold text-white">SupaMart-V</h3>
+                <Link className="ml-2 flex items-center gap-2 hover:scale-105 duration-300 max-lg:-ml-1" to={"/"}> 
+                    <img className="w-15 h-15 max-lg:w-7 max-lg:h-7" src={smartphone} alt="mobileshop"/> 
+                    <h3 className="text-2xl font-extrabold text-white max-lg:text-sm">SupaMart-V</h3>
                 </Link>
                 <p className="mb-3">Contact Us</p>
                 <div>
-                    <p className="flex items-center"><img className="w-5" src="https://cdn-user-icons.flaticon.com/192011/192011013/1742224426646.svg?token=exp=1742225382~hmac=345ba5a5a4f5ce03d64fd710a18c2282" alt="" /> Whats App</p>
-                    <p className="ml-5 mb-2">7788996655</p>
-                    <p className="flex items-center"><img className="w-5" src="https://cdn-user-icons.flaticon.com/192011/192011013/1742224666106.svg?token=exp=1742225566~hmac=9fa0a8bc1fe89e5e55047fda2b26fe1f" alt="" /> Call Us</p>
-                    <p className="ml-5">7788996655</p>
+                    <p className="flex items-center max-lg:-ml-5"><img className="w-5" src="https://cdn-user-icons.flaticon.com/192011/192011013/1742224426646.svg?token=exp=1742225382~hmac=345ba5a5a4f5ce03d64fd710a18c2282" alt="" /> Whats App</p>
+                    <p className="ml-5 mb-2 max-lg:ml-0">7788996655</p>
+                    <p className="flex items-center max-lg:-ml-5"><img className="w-5" src="https://cdn-user-icons.flaticon.com/192011/192011013/1742224666106.svg?token=exp=1742225566~hmac=9fa0a8bc1fe89e5e55047fda2b26fe1f" alt="" /> Call Us</p>
+                    <p className="ml-5 max-lg:ml-0">7788996655</p>
                 </div>
             </div>
 
-            <div>
-                <h2  className="text-xl">Popular Products Category</h2>
+            <div className="max-lg:ml-9">
+                <h2  className="text-xl max-lg:text-sm">Popular Products Category</h2>
                 <hr className=" opacity-60" />
                 <ul className=" list-disc p-5">
                     <li className=" hover:text-amber-400 duration-300"><Link to={"/body/audio"}>HeadPhones</Link></li>
@@ -35,7 +35,7 @@ function Footer(){
             
 
             <div className="mr-20">
-                <h2 className="text-xl">Services</h2>
+                <h2 className="text-xl max-lg:text-sm">Services</h2>
                 <hr className=" opacity-60" />
                 <ul className=" list-disc p-5">
                     <li className=" hover:text-amber-400 duration-300"><Link to={"/aboutus"}>About Us</Link></li>
@@ -48,18 +48,18 @@ function Footer(){
 
             </div>
             <hr className=" opacity-60"  />
-            <div className="flex h-20 justify-evenly">
-                <div className="flex p-4 gap-4">
+            <div className="flex h-20 justify-evenly max-lg:text-[2.5vw]">
+                <div className="flex p-4 gap-4"> 
                     <div className="flex items-center">
-                        <img className="w-6 mr-3" src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb0ed6e927bdf5bc4309e0_briefcase.svg" loading="lazy" alt=""/>
+                        <img className="w-6 mr-3 max-lg:w-3 " src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb0ed6e927bdf5bc4309e0_briefcase.svg" loading="lazy" alt=""/>
                         <p>Become <br /> Seller</p>
                     </div>
                     <div className="flex items-center">
-                        <img className="w-6 mr-3" src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb0ed6c4510c256356f4cd_gift.svg" loading="lazy" alt=""/>
+                        <img className="w-6 mr-3 max-lg:w-3 " src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb0ed6c4510c256356f4cd_gift.svg" loading="lazy" alt=""/>
                         <p>Gift <br /> Cards</p>
                     </div>
                     <div className="flex items-center">
-                        <img className="w-6 mr-3" src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb0ed6ae57fd74e0402aa4_help-circle.svg" loading="lazy" alt=""/>
+                        <img className="w-6 mr-3 max-lg:w-3 " src="https://cdn.prod.website-files.com/63e857eaeaf853471d5335ff/63eb0ed6ae57fd74e0402aa4_help-circle.svg" loading="lazy" alt=""/>
                         <p>
                             Help <br /> Canter
                         </p>
