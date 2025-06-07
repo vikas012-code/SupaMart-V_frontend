@@ -14,8 +14,8 @@ function Footer(){
                     <img className="w-15 h-15 max-lg:w-7 max-lg:h-7" src={smartphone} alt="mobileshop"/> 
                     <h3 className="text-2xl font-extrabold text-white max-lg:text-sm">SupaMart-V</h3>
                 </Link>
-                <p className="mb-3 max-lg:mb-1">Contact Us</p>
-                <div>
+                <p className="mb-3 max-lg:my-2 max-lg:ml-3">Contact Us</p>
+                <div className=" max-lg:ml-3">
                     <p className="flex items-center max-lg:-ml-4"><img className="w-5 max-lg:w-4" src={whatappIcon} alt="" /> Whats App</p>
                     <p className="ml-5 mb-2 max-lg:ml-0">7788996655</p>
                     <p className="flex items-center max-lg:-ml-4"><img className="w-5 max-lg:w-4" src={callIcon} alt="" /> Call Us</p>

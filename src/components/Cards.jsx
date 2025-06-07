@@ -59,19 +59,19 @@ function Cards({data}){
     }
     return (<>
                              
-        <div className={`w-64 max-lg:w-40 h-86 max-lg:h-50 m-4 rounded-lg shadow-lg overflow-hidden bg-white ${data?.quantity<=0&&" opacity-20"} max-lg:w-`} key={data?._id}>
+    <div className={`w-64 max-lg:w-40 h-86 max-lg:h-50 m-4 rounded-lg shadow-lg overflow-hidden bg-white ${data?.quantity<=0&&" opacity-20"}`} key={data?._id}>
         <Link className="" to={`/product/${data?._id}`}>
             <img className="h-[65%] w-[100%] object-contain hover:scale-105 duration-300 hover:-translate-y-2 "  src={data?.image} alt={data?.title} />
             <div className=" bg-gray-100 p-3 max-lg:text-[0.6rem]">
                 <p className="min-h-8 mb-4 hover:text-black text-gray-600  font-medium">{truncateString(data?.title,45)}</p>
-                <div className="flex items-center max-lg:-mt-4">
+                <div className="flex items-center max-lg:-mt-3">
                 <p className="flex items-center w-16 font-bold">₹{data?.price}</p>
                 {data?.discount>0 && <p className="ml-3 text-sm text-gray-400  line-through max-lg:text-xs">₹{data?.discount > 0 && (data?.price)+((data?.price)*data?.discount/100)}</p>}
                 {data?.discount>0 && <p className="text-sm ml-2 text-green-400 max-lg:text-[0.6rem]">({data?.discount}%off)</p> }                    
                 </div>
             </div>
         </Link>
-        <button className=" relative bottom-86 left-56 cursor-pointer hover:scale-115 duration-300"
+        <button className=" relative bottom-86 left-56 max-lg:bottom-50 max-lg:left-34 cursor-pointer hover:scale-115 duration-300"
             onClick={()=>{
                 Auth?wishList(data)===heart? addingWishList(data) && setWishListItem([...WishListItem, data]): deletingWishList(data) && setWishListItem(WishListItem.filter(item=> item.product_id!==data._id)) : setAuth(null)
             }}
