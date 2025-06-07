@@ -115,7 +115,7 @@ function Product(){
                     </div>
                     
                     
-                    <div className="  h-58 w-50 ml-10 shadow-md shadow-gray-400 max-lg:w-[80vw] max-lg:ml-0 max-lg:h-50 max-lg:mt-5">
+                    <div className="  h-58 w-50 ml-10 shadow-md shadow-gray-400 max-lg:w-[90vw] max-lg:ml-0 max-lg:h-50 max-lg:mt-5 max-lg:shadow-sm max-lg:shadow-gray-200">
 
                         <div className=" m-4  justify-between items-center"> 
                             <div className="flex justify-between items-center">
@@ -125,9 +125,9 @@ function Product(){
                             {Data.discount>0 && <p className=" text-sm text-gray-400  line-through">₹{(Data.price)+((Data.price)*Data.discount/100)}</p>}
                         </div>
 
-                        <div className="flex justify-center items-center">
-                            <div className=" border border-gray-300  flex gap-4 justify-center items-center">
-                            <button className={` w-8 h-8  active:bg-gray-200 ${quantity<=1?" pointer-events-none opacity-20":""}`} onClick={()=>{
+                        <div className="flex justify-center items-center ">
+                            <div className=" border border-gray-300  flex gap-4 justify-center items-center max-lg:rounded-lg max-lg:w-[75vw] max-lg:justify-around">
+                            <button className={` w-8 h-8 max-lg:w-full  active:bg-gray-200 ${quantity<=1?" pointer-events-none opacity-20":""}`} onClick={()=>{
                                 quantity > 0 && setQuantity(quantity-1)
                             }}>
                                 -
@@ -137,7 +137,7 @@ function Product(){
                                 {quantity}
                             </p>
 
-                            <button className=" w-8 h-8 active:bg-gray-200 " onClick={()=>{
+                            <button className=" w-8 h-8 max-lg:w-full active:bg-gray-200 " onClick={()=>{
                                 quantity<Data.quantity
                                 &&
                                 setQuantity(quantity+1)
