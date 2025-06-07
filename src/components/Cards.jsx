@@ -71,7 +71,7 @@ function Cards({data}){
                 </div>
             </div>
         </Link>
-        <button className=" relative bottom-86 left-56 max-lg:bottom-50 max-lg:left-34 cursor-pointer hover:scale-115 duration-300"
+        <button className=" relative bottom-82 left-56 max-lg:bottom-50 max-lg:left-34 cursor-pointer hover:scale-115 duration-300"
             onClick={()=>{
                 Auth?wishList(data)===heart? addingWishList(data) && setWishListItem([...WishListItem, data]): deletingWishList(data) && setWishListItem(WishListItem.filter(item=> item.product_id!==data._id)) : setAuth(null)
             }}
