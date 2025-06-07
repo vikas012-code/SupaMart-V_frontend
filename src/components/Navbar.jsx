@@ -32,7 +32,7 @@ function Navbar() {
             </Link>
         </div>
 
-        <div className={`flex justify-between items-center max-lg:flex-col max-lg:bg-white max-lg:items-start max-lg:absolute max-lg:top-20 max-lg:right-0 max-lg:p-5  ${isOpen?"max-lg:hidden":"max-lg:block"}`}>
+        <div className={`flex justify-between items-center max-lg:w-[100vw] max-lg:flex-col max-lg:bg-white max-lg:items-start max-lg:absolute max-lg:top-20 max-lg:right-0 max-lg:p-5  ${isOpen?"max-lg:hidden":"max-lg:block"}`}>
             <ul className="flex gap-10 max-lg:flex-col max-lg:mb-5">
             <button className="peer duration-300 h-20 border-b-2 border-transparent a hover:border-b-2 hover:text-blue-500 hover:scale-110 flex items-center focus:outline-none max-lg:h-0" >Category </button>
             <ul className=" invisible bg-white absolute top-20 p-1 rounded-b-lg peer-focus:visible active:visible ease-linear z-50 max-lg:top-10 max-lg:left-0">
@@ -45,7 +45,7 @@ function Navbar() {
             </ul>
 
             <div >
-                <form className="flex justify-center items-center" onSubmit={handleSubmit}>
+                <form className="flex justify-center items-center max-lg:justify-start" onSubmit={handleSubmit}>
                     <input className=" border h-10 rounded-3xl w-80 focus:border-cyan-600 focus:border-2 focus:outline-hidden p-3 focus:scale-110 duration-300 border-gray-400 peer" type="text" placeholder="Search . . . ." value={searchItem} onChange={(e)=>{
                         setSearchItem(e.target.value)
                     }} />

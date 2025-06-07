@@ -7,14 +7,14 @@ import whatappIcon from "../assets/whats-app.png"
 function Footer(){
     return (
         <>
-        <footer className="mt-2 bg-blue-500 text-white p-6 max-lg:text-[0.5rem]">
+        <footer className="mt-2 bg-blue-500 text-white p-6 max-lg:text-[0.5rem] max-lg:p2">
             <div className="flex justify-between p-3 pb-10 max-lg:p-1 max-lg:pb-1">
             <div>
-                <Link className="ml-2 flex items-center gap-2 hover:scale-105 duration-300 max-lg:-ml-1" to={"/"}> 
+                <Link className="ml-2 flex items-center gap-2 hover:scale-105 duration-300 max-lg:-ml-1 max-lg:w-30" to={"/"}> 
                     <img className="w-15 h-15 max-lg:w-7 max-lg:h-7" src={smartphone} alt="mobileshop"/> 
                     <h3 className="text-2xl font-extrabold text-white max-lg:text-sm">SupaMart-V</h3>
                 </Link>
-                <p className="mb-3">Contact Us</p>
+                <p className="mb-3 max-lg:mb-1">Contact Us</p>
                 <div>
                     <p className="flex items-center max-lg:-ml-4"><img className="w-5 max-lg:w-4" src={whatappIcon} alt="" /> Whats App</p>
                     <p className="ml-5 mb-2 max-lg:ml-0">7788996655</p>
@@ -23,8 +23,8 @@ function Footer(){
                 </div>
             </div>
 
-            <div className="max-lg:ml-9">
-                <h2  className="text-xl max-lg:text-sm">Popular Products Category</h2>
+            <div className="max-lg:ml-3">
+                <h2  className="text-xl max-lg:text-[0.7rem]">Popular Products Category</h2>
                 <hr className=" opacity-60" />
                 <ul className=" list-disc p-5">
                     <li className=" hover:text-amber-400 duration-300"><Link to={"/body/audio"}>HeadPhones</Link></li>
@@ -36,10 +36,10 @@ function Footer(){
             </div>
             
 
-            <div className="mr-20">
-                <h2 className="text-xl max-lg:text-sm">Services</h2>
-                <hr className=" opacity-60" />
-                <ul className=" list-disc p-5">
+            <div className="mr-20 max-lg:ml-2 ">
+                <h2 className="text-xl text-[0.7rem]">Services</h2>
+                <hr className=" opacity-60 w-15" />
+                <ul className=" list-disc p-5 max-lg:p-0 max-lg:pl-5 max-lg:pt-4">
                     <li className=" hover:text-amber-400 duration-300"><Link to={"/aboutus"}>About Us</Link></li>
                     <li className=" hover:text-amber-400 duration-300"><Link to={"/termsandcondition"}>Terms & Conditions</Link></li>
                     <li className=" hover:text-amber-400 duration-300"><Link to={"/privacyandpolicy"}>Privacy & Policy</Link></li>
