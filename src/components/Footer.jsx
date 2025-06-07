@@ -10,7 +10,7 @@ function Footer(){
         <footer className="mt-2 bg-blue-500 text-white p-6 max-lg:text-[0.5rem] max-lg:p-4">
             <div className="flex justify-between p-3 pb-10 max-lg:p-1 max-lg:pb-1">
             <div>
-                <Link className="ml-2 flex items-center gap-2 hover:scale-105 duration-300 max-lg:ml-0 max-lg:w-32 max-lg:gap-1" to={"/"}> 
+                <Link className="ml-2 flex items-center gap-2 hover:scale-105 duration-300 max-lg:ml-0 max-lg:w-35 max-lg:gap-1" to={"/"}> 
                     <img className="w-15 h-15 max-lg:w-7 max-lg:h-7" src={smartphone} alt="mobileshop"/> 
                     <h3 className="text-2xl font-extrabold text-white max-lg:text-sm">SupaMart-V</h3>
                 </Link>
