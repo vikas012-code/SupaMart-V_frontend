@@ -10,7 +10,7 @@ function ShippingDetails(){
         <div className="flex flex-col items-center mt-5">
 
             <p className="text-2xl mb-5">Delivery Address</p>
-            <form className=" shadow-lg shadow-gray-400 flex flex-col p-5 gap-2 rounded-lg mb-5 w-[60vw] " onSubmit={(e)=>{
+            <form className=" shadow-lg shadow-gray-400 flex flex-col p-5 gap-2 rounded-lg mb-5 w-[60vw] max-sm:w-[90vw]" onSubmit={(e)=>{
                 e.preventDefault()
                 navigate("/checkout/PaymentDetails")
                 setProgressBar(ProgressBar+1)
