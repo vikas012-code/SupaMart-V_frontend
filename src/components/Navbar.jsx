@@ -25,7 +25,7 @@ function Navbar() {
     const [categoryOpen,setCategoryOpen]=useState(true)
     return (
       <>
-      <nav className="w-[100vw] bg-white h-20 flex justify-evenly items-center drop-shadow-lg fixed top-0 z-50 max-lg:gap-0 max-lg:justify-between max-lg:fixed max-lg:top-0">
+      <nav className="w-[100vw] bg-white pr-2 h-20 flex justify-around  items-center drop-shadow-lg fixed top-0 z-50 max-lg:gap-0 max-lg:justify-between max-lg:fixed max-lg:top-0">
         <div className=" flex justify-center items-center mr-auto ml-10">
             <Link className=" flex justify-center items-center gap-2 hover:scale-105 duration-300" to={"/"}> 
                 <img className="w-16 h-16 max-lg:w-8 max-lg:h-8" src={smartphone} alt="mobileshop"/> 
@@ -67,7 +67,7 @@ function Navbar() {
             </ul>
         </div>
 
-        <button className="w-8 max-lg:block hidden" onClick={()=>{
+        <button className="w-8 mr-2 max-lg:block hidden" onClick={()=>{
             setIsOpen(!isOpen)
         }}><img className={`w-full transform transition-transform duration-300 ease-in-out ${!isOpen && "rotate-90"}`}  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png" alt="icon" /></button>
       </nav>
