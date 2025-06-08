@@ -22,6 +22,7 @@ function Navbar() {
 
     const [isOpen,setIsOpen]=useState(true)
 
+    const [categoryOpen,setCategoryOpen]=useState(true)
     return (
       <>
       <nav className="w-[100vw] bg-white h-20 flex justify-evenly items-center drop-shadow-lg fixed top-0 z-50 max-lg:justify-between max-lg:fixed max-lg:top-0">
@@ -34,8 +35,10 @@ function Navbar() {
 
         <div className={`flex justify-between items-center max-lg:w-[100vw] max-lg:flex-col max-lg:bg-white max-lg:items-start max-lg:absolute max-lg:top-20 max-lg:right-0 max-lg:p-5  ${isOpen?"max-lg:hidden":"max-lg:block"}`}>
             <ul className="flex gap-10 max-lg:flex-col max-lg:mb-5">
-            <button className="peer duration-300 h-20 border-b-2 border-transparent a hover:border-b-2 hover:text-blue-500 hover:scale-110 flex items-center focus:outline-none max-lg:h-0" >Category </button>
-            <ul className=" invisible bg-white absolute top-20 p-1 rounded-b-lg peer-focus:visible active:visible ease-linear z-50 max-lg:top-10 max-lg:left-0">
+            <button className=" duration-300 h-20 border-b-2 border-transparent a hover:border-b-2 hover:text-blue-500 hover:scale-110 flex items-center  max-lg:h-0" onClick={()=>{
+                setCategoryOpen(!categoryOpen)
+            }} >Category </button>
+            <ul className={`transform transition-transform duration-300 ease-in-out ${categoryOpen?" invisible -translate-y-5":" visible"} bg-white absolute top-20 p-1 rounded-b-lg  z-10 max-lg:top-10 max-lg:left-0 `}>
                 <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/body/mobile" ><img className="w-20 inline" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGSWYehtNHc5FsdWJBLqfn_8hBC0kSqEymNg&s" alt="" />Mobiles</Link>
                 <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/body/audio"><img className="w-20 inline " src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUW33_AV3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1712255584873" alt="" />Headphones</Link>
                 <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/body/tv"><img className="w-20 inline " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk9cJPdKE_QpzvQvYUYdmT69WYq5VyGTNbxA&s" alt="" />TV</Link>
@@ -66,7 +69,7 @@ function Navbar() {
 
         <button className="w-8 max-lg:block hidden" onClick={()=>{
             setIsOpen(!isOpen)
-        }}><img className={`w-full "transform transition-transform duration-300 ease-in-out ${!isOpen && "rotate-90"}`}  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png" alt="icon" /></button>
+        }}><img className={`w-full transform transition-transform duration-300 ease-in-out ${!isOpen && "rotate-90"}`}  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png" alt="icon" /></button>
       </nav>
       <div className="mt-20"></div>
       </> 

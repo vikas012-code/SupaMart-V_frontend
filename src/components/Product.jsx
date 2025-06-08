@@ -117,8 +117,8 @@ function Product(){
                     
                     <div className="  h-58 w-50 ml-10 shadow-md shadow-gray-400 max-lg:w-[90vw] max-lg:ml-0 max-lg:h-50 max-lg:mt-5 max-lg:shadow-sm max-lg:shadow-gray-200">
 
-                        <div className=" m-4  justify-between items-center"> 
-                            <div className="flex justify-between items-center">
+                        <div className=" m-4"> 
+                            <div className="flex justify-between items-center max-lg:justify-start max-lg:gap-5">
                                 <p className="text-lg font-bold max-lg:text-xl">₹{Data.price}</p>
                                 {Data?.discount>0 &&<p className="text-green-400">({Data.discount}%off)</p> }
                             </div>
