@@ -25,8 +25,8 @@ function Navbar() {
     const [categoryOpen,setCategoryOpen]=useState(true)
     return (
       <>
-      <nav className="w-[100vw] bg-white h-20 flex justify-evenly items-center drop-shadow-lg fixed top-0 z-50 max-lg:justify-between max-lg:fixed max-lg:top-0">
-        <div className=" flex justify-center items-center">
+      <nav className="w-[100vw] bg-white h-20 flex justify-evenly items-center drop-shadow-lg fixed top-0 z-50 max-lg:gap-0 max-lg:justify-between max-lg:fixed max-lg:top-0">
+        <div className=" flex justify-center items-center mr-auto ml-10">
             <Link className=" flex justify-center items-center gap-2 hover:scale-105 duration-300" to={"/"}> 
                 <img className="w-16 h-16 max-lg:w-8 max-lg:h-8" src={smartphone} alt="mobileshop"/> 
                 <h3 className="text-3xl font-extrabold text-blue-600 max-lg:text-lg">SupaMart-V</h3>
@@ -34,7 +34,7 @@ function Navbar() {
         </div>
 
         <div className={`flex justify-between items-center max-lg:w-[100vw] max-lg:flex-col max-lg:bg-white max-lg:items-start max-lg:absolute max-lg:top-20 max-lg:right-0 max-lg:p-5  ${isOpen?"max-lg:hidden":"max-lg:block"}`}>
-            <ul className="flex gap-10 max-lg:flex-col max-lg:mb-5">
+            <ul className="flex gap-10 mr-4 max-lg:flex-col max-lg:mb-5">
             <button className=" duration-300 h-20 border-b-2 border-transparent a hover:border-b-2 hover:text-blue-500 hover:scale-110 flex items-center  max-lg:h-0" onClick={()=>{
                 setCategoryOpen(!categoryOpen)
             }} >Category </button>
@@ -56,7 +56,7 @@ function Navbar() {
                 </form>
             </div>
 
-            <ul className="flex gap-5 justify-around items-center max-lg:flex-col max-lg:items-start max-lg:mt-5">
+            <ul className="flex gap-5 justify-around items-center mr-4 max-lg:flex-col max-lg:items-start max-lg:mt-5">
                 <li><Link className="flex justify-center items-center gap-3 hover:text-blue-500 hover:scale-110 duration-300" to="/account" onClick={()=>{
                     setSection("mywishlist")
                 }}><img className="w-6 h-6" src={heart} alt="accont" /> <p>{"WishList"}</p></Link></li>
