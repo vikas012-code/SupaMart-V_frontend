@@ -24,46 +24,46 @@ function AboutUsPage() {
         </div>
 
         
-        <div className="flex justify-evenly gap-6">
+        <div className="flex justify-evenly gap-6 flex-wrap">
          
-          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60">
+          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60 max-lg:w-35 max-lg:h-50 max-lg:p-3">
             <img
               src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
               alt="Smartphone"
-              className="w-full h-40 object-cover rounded-xl mb-4"
+              className="w-full h-40 object-cover rounded-xl mb-4 max-lg:h-25 max-lg:mb-2"
             />
-            <h3 className="text-xl font-semibold">Smartphones</h3>
-            <p className="text-sm text-gray-600">Latest flagship and budget devices.</p>
+            <h3 className="text-xl font-semibold max-lg:text-sm">Smartphones</h3>
+            <p className="text-sm text-gray-600 max-lg:text-xs">Latest flagship and budget devices.</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60">
+          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60 max-lg:w-35 max-lg:h-50 max-lg:p-3">
             <img
               src="https://arcticfox.com/cdn/shop/files/8_b5937b5b-8c26-4450-a248-3162a20e83a3.jpg?v=1706020146"
               alt="Speakers"
-              className="w-full h-40 object-cover rounded-xl mb-4"
+              className="w-full h-40 object-cover rounded-xl mb-4 max-lg:h-25 max-lg:mb-2"
             />
-            <h3 className="text-xl font-semibold">Speakers</h3>
-            <p className="text-sm text-gray-600">Powerful sound for every space.</p>
+            <h3 className="text-xl font-semibold max-lg:text-sm">Speakers</h3>
+            <p className="text-sm text-gray-600 max-lg:text-xs">Powerful sound for every space.</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60">
+          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60 max-lg:w-35 max-lg:h-50 max-lg:p-3">
             <img
               src="https://plus.unsplash.com/premium_photo-1668418188837-d40b734ed6d2?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZWFycGhvbmVzfGVufDB8fDB8fHww"
               alt="Earphones"
-              className="w-full h-40 object-cover rounded-xl mb-4"
+              className="w-full h-40 object-cover rounded-xl mb-4 max-lg:h-25 max-lg:mb-2"
             />
-            <h3 className="text-xl font-semibold">Earphones</h3>
-            <p className="text-sm text-gray-600">Wireless and wired sound experience.</p>
+            <h3 className="text-xl font-semibold max-lg:text-sm">Earphones</h3>
+            <p className="text-sm text-gray-600 max-lg:text-xs">Wireless and wired sound experience.</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60">
+          <div className="bg-white rounded-2xl shadow-lg p-4 text-center w-60 max-lg:w-35 max-lg:h-50 max-lg:p-3">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuAQ_RQmI5Ucxw5uVqu5bGHU2d2mkvpkmejAPi2FVr72fpBV1Bbchilju353pkJRZ8CLU&usqp=CAU"
               alt="Gaming"
-              className="w-full h-40 object-cover rounded-xl mb-4"
+              className="w-full h-40 object-cover rounded-xl mb-4 max-lg:h-25 max-lg:mb-2"
             />
-            <h3 className="text-xl font-semibold">Gaming</h3>
-            <p className="text-sm text-gray-600">Gear to level up your gameplay.</p>
+            <h3 className="text-xl font-semibold max-lg:text-sm">Gaming</h3>
+            <p className="text-sm text-gray-600 max-lg:text-xs">Gear to level up your gameplay.</p>
           </div>
         </div>
       </section>

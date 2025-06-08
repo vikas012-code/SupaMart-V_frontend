@@ -50,10 +50,10 @@ function MyAccount(){
     
     
     return(
-    <div className=" min-h-[50vh] bg-white -mb-2 flex flex-col items-center justify-between">
+    <div className=" min-h-[50vh] bg-white -mb-2 flex flex-col items-center justify-between ">
 
-        <div className="flex justify-center">
-            <div className=" w-50 text-center p-5 leading-15 text-xl font-bold">
+        <div className="flex justify-center max-lg:flex-col max-lg:items-center">
+            <div className=" w-50 text-center p-5 leading-15 text-xl font-bold max-lg:flex max-lg:leading-5 max-lg:gap-5 max-lg:w-full max-lg:justify-center">
                 <button className={`${section=="myaccount" && "text-blue-600"} `} onClick={()=>{
                     setSection("myaccount")
                 }}>My Account</button>
@@ -65,7 +65,7 @@ function MyAccount(){
                 }}>My Orders</button>
             </div>
 
-            <div className=" w-[40vw] shadow mt-5">
+            <div className=" w-[40vw] shadow mt-5 max-lg:w-[80vw]">
 
                 <div className={`p-8 pt-5 ${section!=="myaccount" && "hidden"}`}>
                     <h3 className="text-lg font-bold">My Profile</h3>
@@ -107,15 +107,15 @@ function MyAccount(){
                 </div>
 
 
-                <div className={`p-8 pt-5  ${section!=="mywishlist" && "hidden"}`}>
+                <div className={`p-8 pt-5 max-lg:p-4  ${section!=="mywishlist" && "hidden"}`}>  
                     <h3 className="text-lg font-bold">Products</h3>
-                <div className="flex justify-center flex-wrap p-2 gap-2 -ml-3 ">
+                <div className="flex justify-center flex-wrap p-2 gap-2 -ml-3 max-lg:p-0 max-lg:pt-3 max-lg:ml-0">
                 {
                  Auth? WishListItem?.length>0?wishListdetails?.map((item,i)=>
-                        <Link key={i} className="shadow w-25 h-35 mx-1" to={`/product/${item?._id}`}>
+                        <Link key={i} className="shadow w-25 h-35 mx-1 max-lg:w-20 " to={`/product/${item?._id}`}>
                             <img className=" h-25 object-contain" src={item?.image} alt="" />
-                            <p className="text-xs truncate">{item?.title}</p>
-                            <p className="text-sm font-bold">₹{item?.price}</p>
+                            <p className="text-xs truncate max-lg:text-[0.7rem]">{item?.title}</p>
+                            <p className="text-sm font-bold max-lg:text-xs">₹{item?.price}</p>
                         </Link>
                     )
                     :
@@ -149,10 +149,10 @@ function MyAccount(){
                     {orderDetails.map((items,i)=>(
                         <div key={i}>
                             <hr />
-                            <div className="flex items-center justify-between mt-2 shadow mr-2 pr-2">
+                            <div className="flex items-center justify-between mt-2 shadow mr-2 pr-2 max-lg:justify-start">
                                 <img className="w-20 h-20" src={items?.item?.image} alt={items?.item?.title} />
-                                <p className=" text-gray-500 w-40 h-10 text-wrap truncate  text-sm mr-60">{items?.item?.title}</p>
-                                <p>{items?.data?.quantity}</p>
+                                <p className=" text-gray-500 w-40 h-10 text-wrap truncate  text-sm mr-60 max-lg:w-[40vw] max-lg:mr-10 max-lg:ml-2">{items?.item?.title}</p>
+                                <p className=" max-lg:ml-auto">{items?.data?.quantity}</p>
                             </div>
                         </div>
                     ))}
@@ -174,7 +174,7 @@ function MyAccount(){
 
             </div>
         </div>
-    {
+        {
         Auth &&
         <button onClick={()=>{
             setAuth(null)
@@ -182,7 +182,7 @@ function MyAccount(){
             Cookies.remove("UserAuth")
         }} className=" bg-blue-600 text-white w-30 rounded-md mt-4 mb-4">
             Logout</button>
-    }
+        }
     </div>
     )
 }

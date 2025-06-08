@@ -28,36 +28,36 @@ function ShippingDetails(){
                     setShippingAddress({...ShippingAddress, Floor:e.target.value})
                 }}/>
 
-                <div className="flex gap-2 p-2 justify-evenly">
+                <div className="flex gap-2 p-2 justify-evenly max-sm:flex-col">
                     
                     <label htmlFor="State">State<span className="text-red-600">*</span></label>
-                    <input className=" border p-1 rounded-lg w-[30%]" type="text" name="State" required value={ShippingAddress.State} onChange={(e)=>{
+                    <input className=" border p-1 rounded-lg w-[30%] max-sm:w-full" type="text" name="State" required value={ShippingAddress.State} onChange={(e)=>{
                     setShippingAddress({...ShippingAddress, State:e.target.value})
                     }}/>
                     <label htmlFor="City">City<span className="text-red-600">*</span></label>
-                    <input className=" border p-1 rounded-lg w-[50%]" type="text" name="City" value={ShippingAddress.City} onChange={(e)=>{
+                    <input className=" border p-1 rounded-lg w-[50%] max-sm:w-full" type="text" name="City" value={ShippingAddress.City} onChange={(e)=>{
                     setShippingAddress({...ShippingAddress, City:e.target.value})
                     }} required />
                     <label htmlFor="Pincode">Zip/Pincode<span className="text-red-600">*</span></label>
-                    <input className=" border p-1 rounded-lg w-[30%]" type="number" name="Pincode" required value={ShippingAddress.Pincode} onChange={(e)=>{
+                    <input className=" border p-1 rounded-lg w-[30%] max-sm:w-full" type="number" name="Pincode" required value={ShippingAddress.Pincode} onChange={(e)=>{
                     setShippingAddress({...ShippingAddress, Pincode:e.target.value})
                     }}/>
                 </div>
 
                 <p className="text-2xl mb-5 self-center mt-5">Contact Info</p>
 
-                <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center justify-between mb-5 max-sm:flex-col max-sm:items-start">
                     <label htmlFor="FullName">Email<span className="text-red-600">*</span></label>
-                    <input className=" border p-1 rounded-lg w-[40%] mr-5 h-10" type="email" name="Email" required value={ShippingAddress.Email} onChange={(e)=>{
+                    <input className=" border p-1 rounded-lg w-[40%] mr-5 h-10 max-sm:w-full" type="email" name="Email" required value={ShippingAddress.Email} onChange={(e)=>{
                     setShippingAddress({...ShippingAddress, Email:e.target.value})
                     }}/>
                     <label htmlFor="FullName">Phone Number<span className="text-red-600">*</span></label>
-                    <input className=" border p-1 rounded-lg w-[40%] h-10" type="number" name="PhoneNumber" required value={ShippingAddress.PhoneNumber} onChange={(e)=>{
+                    <input className=" border p-1 rounded-lg w-[40%] h-10 max-sm:w-full" type="number" name="PhoneNumber" required value={ShippingAddress.PhoneNumber} onChange={(e)=>{
                     setShippingAddress({...ShippingAddress, PhoneNumber:e.target.value})
                     }}/>
                 </div>
 
-                <button type="submit" className=" self-end w-[40%] mr-2 bg-blue-600 text-white p-2  rounded-md hover:text-blue-600 hover:bg-white hover:scale-105 hover:border duration-300">Proceed To Saving and Payment</button>
+                <button type="submit" className=" self-end w-[40%] mr-2 bg-blue-600 text-white p-2  rounded-md hover:text-blue-600 hover:bg-white hover:scale-105 hover:border duration-300 max-sm:text-xs max-sm:w-[60%]">Proceed To Saving and Payment</button>
 
             </form>
         </div>

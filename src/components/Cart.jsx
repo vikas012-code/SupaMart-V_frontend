@@ -75,16 +75,16 @@ function Cart(){
                 <>
                 <h3 className="text-center mb-8 text-2xl font-bold">Check Out</h3>
                 <div className=" flex justify-evenly text-xl font-bold">
-                    <p className="relative right-[45vw]">
+                    <p className="relative right-[45vw] max-sm:right-[40vw] max-sm:text-sm">
                         Title
                     </p>
-                    <p className="absolute right-[24vw]">
+                    <p className="absolute right-[26vw] max-lg:right-[32vw] max-sm:text-sm">
                         Price
                     </p>
-                    <p className="absolute right-[16vw]">
+                    <p className="absolute right-[14vw] max-sm:text-sm">
                         Quantity
                     </p>
-                    <p className="absolute right-[4vw]">
+                    <p className="absolute right-[4vw] max-lg:right-1 max-sm:text-sm ">
                         Total
                     </p>
                 </div>
@@ -92,14 +92,14 @@ function Cart(){
 
             {cartItem.map((item)=>( 
             item.quantity>0&&
-            <div className="" key={item?.Data._id}>
+            <div className=" max-lg:text-[0.7rem]" key={item?.Data._id}>
             <ul className="flex justify-between items-center pb-3 p-2 ">
                 <li><img className="min-w-20 h-20" src={item?.Data.image} alt="" /></li>
-                <li className="pt-2 w-220 overflow-clip text-nowrap mr-120">{item?.Data.title}</li>
-                <li className="absolute right-[24vw] pt-2 flex items-center"><img className="h-4 mt-0.5" src="https://cdn3.iconfinder.com/data/icons/inficons-currency-set/512/rupee-512.png"/>{item?.Data.price}</li>
+                <li className="pt-2 w-220 overflow-clip text-nowrap mr-120 max-lg:mr-auto max-lg:w-[30vw] max-lg:text-wrap">{item?.Data.title}</li>
+                <li className="absolute right-[26vw] pt-2 flex items-center max-lg:right-[32vw]"><img className="h-4 mt-0.5 max-lg:h-3 max-lg:mt-0" src="https://cdn3.iconfinder.com/data/icons/inficons-currency-set/512/rupee-512.png"/>{item?.Data.price}</li>
 
-                <li className="absolute right-[15vw] pt-2 flex items-center">
-                    <div className=" border border-gray-300  flex gap-4  items-center min-w-26">
+                <li className="absolute right-[13vw] pt-2 flex items-center max-lg:right-[16vw] max-sm:right-[16vw]">
+                    <div className=" border border-gray-300  flex gap-4  items-center min-w-26 max-lg:flex-col max-lg:min-w-8 max-lg:h-22">
                     {item.quantity>0 &&     
                     <button className=" w-8 h-8  active:bg-gray-200" onClick={()=>{ 
                         item.quantity-=1 
@@ -119,7 +119,7 @@ function Cart(){
                     }
                     </div>
                 </li>
-                <li className="absolute right-[4vw] pt-2 flex items-center"><img className="h-4 mt-0.5" src="https://cdn3.iconfinder.com/data/icons/inficons-currency-set/512/rupee-512.png"/>{item?.quantity*item?.Data.price}</li>
+                <li className="absolute right-[4vw] pt-2 flex items-center max-sm:right-[2vw]"><img className="h-4 mt-0.5 max-lg:h-3 max-lg:mt-0" src="https://cdn3.iconfinder.com/data/icons/inficons-currency-set/512/rupee-512.png"/>{item?.quantity*item?.Data.price}</li>
             </ul>
             <hr className="border-b-1 mb-2 border-gray-400"/>
             </div>)
