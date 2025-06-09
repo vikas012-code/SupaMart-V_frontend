@@ -68,10 +68,6 @@ useEffect(()=>{
 }
 ,[Auth])
 
-//admin@gmail.com
-//admin
-
-
 const [ShippingAddress,setShippingAddress]=useState({
   fullName:"",
   StreetAddress:"",

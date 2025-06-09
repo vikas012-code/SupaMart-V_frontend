@@ -108,8 +108,8 @@ function AdminProduct() {
                         alert("Something Went Wrong")
                     }}>
                         <h3 className=" text-2xl font-bold flex pl-4 pt-4">Add New Product</h3>
-                        <div className="flex justify-evenly p-4">
-                            <div className="flex flex-col  w-[48%]">
+                        <div className="flex justify-evenly p-4 max-sm:flex-col">
+                            <div className="flex flex-col  w-[48%] max-sm:w-full">
                                 <div>
                                     <label className="font-bold" htmlFor="">Product Name<span className="text-red-600">*</span></label>
                                 </div>
@@ -143,7 +143,7 @@ function AdminProduct() {
                                 <br />
                             </div>
 
-                            <div className="flex flex-col w-[48%]">
+                            <div className="flex flex-col w-[48%] max-sm:w-full">
                                 <div>
                                     <label className="font-bold" htmlFor="">Brand<span className="text-red-600">*</span></label>
                                 </div>
@@ -222,10 +222,10 @@ function AdminProduct() {
                 }
                 <div className="bg-white w-[93%] pb-6 rounded-2xl flex flex-col items-center">
                     <div className=" border-b-2 border-gray-300 w-[90%] py-4">
-                        <h3 className="text-2xl font-bold ">All Product Listing</h3>
+                        <h3 className="text-2xl font-bold max-lg:text-lg">All Product Listing</h3>
                     </div>
                     <div className="w-[90%] text-center">
-                        <div className="border-b-2 border-gray-300 text-xl opacity-40">
+                        <div className="border-b-2 border-gray-300 text-xl opacity-40 max-lg:text-sm">
                             <div className="h-20 flex justify-between items-center">
                                 <p className=" w-[42%] flex place-items-start pl-4">Product</p>
                                 <p className=" w-[23%]">Product_id</p>
@@ -274,7 +274,7 @@ function AdminProduct() {
                                             </div>
                                         </div>
             
-                                        <div  className="h-20 flex justify-between items-center border-b-2 border-gray-400 relative">
+                                        <div  className="h-20 flex justify-between items-center border-b-2 border-gray-400 relative max-lg:text-xs max-sm:text-[0.5rem]">
                                             
                                             <div className="flex w-[42%]">
                                                 <div className="w-15 h-15 mr-4">
@@ -282,8 +282,8 @@ function AdminProduct() {
                                                 </div>
                                                 <p className="w-100 h-12 text-wrap truncate text-left">{item.title}</p>
                                             </div>
-                                            <p className=" w-[23%]">#{item._id}</p>
-                                            <p className=" w-[13%]">₹{item.price}</p>
+                                            <p className=" w-[23%]  max-sm:truncate">#{item._id}</p>
+                                            <p className=" w-[13%] ">₹{item.price}</p>
                                             <p className=" w-[12%]">{item.quantity}</p>
                                         </div>
                                     </div>

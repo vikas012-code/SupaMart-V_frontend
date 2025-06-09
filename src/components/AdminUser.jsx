@@ -61,42 +61,43 @@ function AdminUser({props}) {
 
     return (
         <div className="pb-10 mt-10 flex flex-col items-center  gap-5">
-            <h3 className=" self-start p-5 -mt-7 font-bold  text-3xl">
+            <h3 className=" self-start p-5 -mt-7 font-bold  text-3xl max-lg:text-lg">
                 Total Users List
             </h3>
                     <div className="bg-white w-[93%] pb-6 rounded-2xl flex flex-col items-center">
-                        <div className=" border-b-2 border-gray-300 w-[90%] py-4">
-                            <h3 className="text-2xl font-bold ">All Users</h3>
+                        <div className=" border-b-2 border-gray-300 w-[95%] py-4">
+                            <h3 className="text-2xl font-bold max-lg:text-lg">All Users</h3>
                         </div>
 
-                        <div className="w-[90%] text-center">
+                        <div className="w-[95%] text-center">
                             <div className="border-b-2 border-gray-300 text-xl opacity-40">
-                                <div className="h-20 flex justify-between items-center">
-                                    <div>User Name</div>
-                                    <div>Cutomer ID</div>
-                                    <div>User Email</div>
-                                    <div>Date</div>
-                                    <div className="w-35">Total Number of Purchases</div>
-                                    <div className="w-35">Total Purchases Amount</div>
+                                <div className="h-20 flex justify-between items-center max-lg:text-sm max-sm:text-[0.6rem]">
+                                    <div className="w-[12%]">User Name</div>
+                                    <div className="w-[20%] mx-1">Cutomer ID</div>
+                                    <div className="w-[20%] mx-1">User Email</div>
+                                    <div className="w-[10%] mx-1">Date</div>
+                                    <div className="w-[15%] mx-1">Total Number of Purchases</div>
+                                    <div className="w-[15%] mx-1">Total Purchases Amount</div>
                                     <div className=""></div>
                                 </div>
                             </div>
-                            <div className="w-[100%] flex flex-col">
+                            <div className="w-full flex flex-col">
                                 {
                                     totalusers?.map((datas)=>(
-                                        <div key={datas._id} className="border-b-2 border-gray-300 text-sm h-20 flex gap-2  items-center">
-                                            <div className="flex">
-                                                <p className='w-30 h-10 text-wrap truncate text-left ml-2'>{datas.name}</p>
+                                        <div key={datas._id} className="w-full border-b-2 border-gray-300 text-sm h-20 flex items-center max-lg:text-xs max-sm:text-[0.4rem]">
+                                            <div className="flex w-[12%]">
+                                                <p className=' text-wrap truncate text-left ml-2'>{datas.name}</p>
                                             </div>
-                                            <div><p className='w-40 h-10 text-wrap truncate'>#{datas._id}</p></div>
-                                            <div><p className='w-50  h-10 text-wrap truncate'>{datas.email}</p></div>
-                                            <div><p className='w-35 h-10 text-wrap truncate -ml-5'>#{datas.createdAt}</p></div>
-                                            <div><p className='w-45  h-10 text-wrap truncate'>{totalsingleUserOrders(datas._id)}</p></div>
-                                            <div><p className='w-45 pl-5  h-10 text-wrap truncate'>₹{totalsingleUserOrdersPrice(datas._id)}</p></div>
-                                            <button className="bg-red-500 text-white rounded-md hover:scale-105 duration-300"
+                                            <div className="w-[20%] mx-1"><p className='  text-wrap truncate'>#{datas._id}</p></div>
+                                            <div className="w-[20%] mx-2"><p className='  text-wrap truncate'>{datas.email}</p></div>
+                                            <div className="w-[15%] mx-2"><p className='  text-wrap truncate '>#{datas.createdAt}</p></div>
+                                            <div className="w-[10%] mx-1"><p className='  text-wrap truncate'>{totalsingleUserOrders(datas._id)}</p></div>
+                                            <div className="w-[10%] mx-1"><p className='  text-wrap truncate'>₹{totalsingleUserOrdersPrice(datas._id)}</p></div>
+                                            <button className="w-10 bg-red-500 text-white rounded-md hover:scale-105 duration-300 max-lg:rounded-sm max-sm:rounded-xs"
                                             onClick={()=>{
                                                 DeleteAccount(datas._id)
-                                            }}>Delete User</button>
+                                            }}>Delete User
+                                            </button>
                                          </div>
                                     ))
                                 }

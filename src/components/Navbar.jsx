@@ -69,7 +69,8 @@ function Navbar() {
 
         <button className="w-8 mr-2 max-lg:block hidden" onClick={()=>{
             setIsOpen(!isOpen)
-        }}><img className={`w-full transform transition-transform duration-300 ease-in-out ${!isOpen && "rotate-90"}`}  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png" alt="icon" /></button>
+        }}><img className={`w-full transform transition-transform duration-300 ease-in-out ${!isOpen && "rotate-90"}`}  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png" alt="icon" />
+        </button>
       </nav>
       <div className="mt-20"></div>
       </> 
