@@ -12,19 +12,15 @@ import Cookies from 'js-cookie'
 
 function App() {
 
-  const [datas ,setDatas]=useState([])
+const [datas ,setDatas]=useState([])
 
-  
-  
-  
-  const [searchItem,setSearchItem]= useState("")
+const [searchItem,setSearchItem]= useState("")
 
-  const [cartItem ,setCartItem]=useState([])
+const [cartItem ,setCartItem]=useState([])
 
-  const [cartQuantity,setCartQuantity]=useState(0)
+const [cartQuantity,setCartQuantity]=useState(0)
 
-  const [total,setTotal]=useState(0)
-
+const [total,setTotal]=useState(0)
   
 const [ProgressBar,setProgressBar]=useState(1)
 
@@ -68,6 +64,7 @@ useEffect(()=>{
 }
 ,[Auth])
 
+
 const [ShippingAddress,setShippingAddress]=useState({
   fullName:"",
   StreetAddress:"",
@@ -80,15 +77,12 @@ const [ShippingAddress,setShippingAddress]=useState({
 })
 
 
-
   useEffect(()=>{
     fetch("https://supamart-v-backend.onrender.com/products")
     .then((res)=> res.json())
     .then((res)=>setDatas(res))
     .catch((err)=>{console.log(err)})
   },[Ordered,refresh])
-
-
 
 
 useEffect(() =>{
@@ -123,6 +117,7 @@ useEffect(() =>{
   }
 },
 [user,WishListItem.length])
+
 
 useEffect(() =>{
   //console.log("order calling..")
@@ -164,12 +159,9 @@ useEffect(()=>{
     },[])
 
 
-
-
 const value={datas,searchItem,setSearchItem,cartItem ,setCartItem,cartQuantity,setCartQuantity,total,setTotal,ShippingAddress,setShippingAddress,ProgressBar,setProgressBar,
   Auth,setAuth,Ordered,setOrdered,WishListItem,setWishListItem,user,setUser,section,setSection,refresh,setRefresh}
 
-  
 
   if(user.Email==="admin@gmail.com" && user.Password==="admin"){
     return (
