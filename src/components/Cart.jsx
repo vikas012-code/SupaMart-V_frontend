@@ -94,8 +94,8 @@ function Cart(){
             item.quantity>0&&
             <div className=" max-lg:text-[0.7rem]" key={item?.Data._id}>
             <ul className="flex justify-between items-center pb-3 p-2 ">
-                <li><img className="min-w-20 h-20" src={item?.Data.image} alt="" /></li>
-                <li className="pt-2 w-220 overflow-clip text-nowrap mr-120 max-lg:mr-auto max-lg:w-[30vw] max-lg:text-wrap">{item?.Data.title}</li>
+                <li className="w-[20%]"><img className="w-full h-20 object-contain " src={item?.Data.image} alt="" /></li>
+                <li className=" w-220 overflow-clip h-12 text-nowrap mr-120 max-lg:mr-auto max-lg:w-[30vw] max-lg:text-wrap max-sm:text-[0.5rem] max-sm:w-[25%] ml-3 flex items-start truncate">{item?.Data.title}</li>
                 <li className="absolute right-[26vw] pt-2 flex items-center max-lg:right-[32vw]"><img className="h-4 mt-0.5 max-lg:h-3 max-lg:mt-0" src="https://cdn3.iconfinder.com/data/icons/inficons-currency-set/512/rupee-512.png"/>{item?.Data.price}</li>
 
                 <li className="absolute right-[13vw] pt-2 flex items-center max-lg:right-[16vw] max-sm:right-[16vw]">

@@ -297,15 +297,7 @@ function LoginPage(){
 
                     <p className="ml-2 text-sm text-gray-300 w-60">Username and Password must be more the 4 characters and unique </p>
                     
-                    {
-                    formType=="login" 
-                    &&
-                    <button className="flex justify-end text-cyan-600 cursor-pointer hover:underline" onClick={()=>{
-                        setFormType("forgetpassword")
-                    }}>
-                        ForgetPassword
-                    </button>
-                    }
+                    
 
 
 
@@ -314,8 +306,8 @@ function LoginPage(){
                     {
                         formType=="login" 
                         && 
-                        <div className="flex flex-col items-center gap-2">
-                            <button className=" mt-4 rounded-sm bg-blue-400 text-white  hover:bg-green-400 duration-300 w-23" onClick={(e)=>{   
+                        <div className="flex flex-col items-center gap-2 relative">
+                            <button className=" mt-6 rounded-sm bg-blue-400 text-white  hover:bg-green-400 duration-300 w-23" onClick={(e)=>{   
                             formData.Email==="admin@gmail.com"?setUser({...user,UserName:"admin",Email:formData.Email,Password:formData.Password}) || setAuth("admin") 
                             || setFormData({...formData,
                                 UserName:"",
@@ -331,6 +323,13 @@ function LoginPage(){
                         <p className="">Don't have Account?<a className="cursor-pointer text-green-600 hover:underline" onClick={()=>{
                             setFormType("sign up")
                         }}>Sign up</a></p>
+        
+                        <button className=" absolute -top-1 -right-6 flex justify-end text-cyan-600 cursor-pointer hover:underline" onClick={()=>{
+                            setFormType("forgetpassword")
+                        }}>
+                            ForgetPassword
+                        </button>
+                        
                         </div>
                     }
                     {

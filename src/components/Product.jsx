@@ -88,7 +88,7 @@ function Product(){
                 <div className="flex items-center max-lg:flex-col max-lg:items">
 
                     <div className=" relative flex justify-center max-lg:w-[80vw]">
-                        <img className=" ml-10  h-80 max-lg:ml-0 max-lg:w-[60vw] max-lg:h-[60vw]" src={Data.image} alt="product" />
+                        <img className=" object-contain ml-10  h-80 max-lg:ml-0 max-lg:w-[60vw] max-lg:h-[60vw]" src={Data.image} alt="product" />
 
                         <button className=" w-10 h-10 absolute top-0 -right-5 max-lg:top-2 max-lg:right-2 cursor-pointer hover:scale-115 duration-300"
                             onClick={()=>{
