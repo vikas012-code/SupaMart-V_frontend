@@ -106,7 +106,7 @@ function AdminPanel(){
                     ||
                     asidePage==="product" && <AdminProduct />
                     ||
-                    asidePage==="order" && <AdminOrder props={[totalOrder,totalOrderDetails,total]}/>
+                    asidePage==="order" && <AdminOrder props={[totalOrderDetails,total]}/>
                     ||
                     asidePage==="users" && <AdminUser props={[totalOrder,totalOrderDetails,total]}/>
 
