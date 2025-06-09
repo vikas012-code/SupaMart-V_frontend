@@ -4,7 +4,7 @@ function AdminOrder({props}) {
 
 
     return (
-        <div className="pb-10 mt-10 flex flex-col items-center">
+        <div className="pb-10 mt-10 flex flex-col items-center w-[100vw]">
             <h3 className=" self-start p-5 -mt-7 font-bold  text-3xl max-lg:text-lg">
                 Total Orders List
             </h3>
