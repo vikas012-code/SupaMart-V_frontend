@@ -26,16 +26,16 @@ function AdminOrder({props}) {
                             <tbody className="w-[100%] flex flex-col">
                                 {
                                     totalOrderDetails.map((datas)=>(
-                                        <tr key={datas.data._id} className="border-b-2 border-gray-300 text-sm h-20 flex justify-between items-center max-md:text-xs max-sm:text-[0.4rem] max-sm:w-[full]">
-                                            <td className="flex max-sm:w-[20%]">
+                                        <tr key={datas.data._id} className="border-b-2 border-gray-300 text-sm h-20 flex justify-between items-center max-md:text-xs max-sm:text-[0.4rem] w-[full]">
+                                            <td className="flex w-[20%]">
                                                 <img className="w-10 h-10 object-contain max-sm:w-6 max-sm:h-6" src={datas.item.image} alt="" />
-                                                <p className='w-30 h-10 text-wrap truncate text-left ml-2 max-sm:ml-1 max-sm:w-full'>{datas.item.title}</p>
+                                                <p className=' h-10 text-wrap truncate text-left ml-2 max-sm:ml-1 w-full'>{datas.item.title}</p>
                                             </td>
-                                            <td className="-ml-15 max-sm:-ml-2 max-sm:w-[15%]"><p className="ax-sm:w-[90%]">{datas.data.quantity}</p></td>
-                                            <td className="max-sm:w-[20%]"><p className='w-20 h-10 text-wrap truncate max-sm:w-[90%]'>#{datas.data._id}</p></td>
-                                            <td className="max-sm:w-[15%]"><p className='w-20 h-10 text-wrap truncate max-sm:w-[90%]'>{datas.data.createdAt}</p></td>
-                                            <td className="max-sm:w-[20%]"><p className='w-20 h-10 text-wrap truncate max-sm:w-[90%]'>#{datas.data.user_id}</p></td>
-                                            <td className="max-sm:w-[15%]">₹{datas.item.price*datas.data.quantity}</td>
+                                            <td className="-ml-2 w-[15%]"><p className="w-[90%]">{datas.data.quantity}</p></td>
+                                            <td className="w-[20%]"><p className='w-20 h-10 text-wrap truncate max-sm:w-[90%]'>#{datas.data._id}</p></td>
+                                            <td className="w-[15%]"><p className='w-20 h-10 text-wrap truncate max-sm:w-[90%]'>{datas.data.createdAt}</p></td>
+                                            <td className="w-[20%]"><p className='w-20 h-10 text-wrap truncate max-sm:w-[90%]'>#{datas.data.user_id}</p></td>
+                                            <td className="w-[15%]">₹{datas.item.price*datas.data.quantity}</td>
                                          </tr>
                                     ))
                                 }

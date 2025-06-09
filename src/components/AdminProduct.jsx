@@ -204,7 +204,7 @@ function AdminProduct() {
                             <button className=" border border-gray-300 w-[20%] h-10 self-end  hover:bg-cyan-500 hover:text-white hover:scale-105 duration-300 rounded-lg" onClick={()=>{
                                 setAddProductToggle(false)
                             }}>Cancel</button>
-                            <button className=" border border-gray-300 w-[20%] h-10 self-end bg-cyan-500 text-white  hover:bg-white hover:text-black hover:scale-105 duration-300 rounded-lg" type="submit">Add Product</button>
+                            <button className=" border border-gray-300 w-[20%] h-10 self-end bg-cyan-500 text-white  hover:bg-white hover:text-black hover:scale-105 duration-300 rounded-lg max-lg:w-fit" type="submit">Add Product</button>
                         </div>
                     </form>
                 </div>
@@ -280,7 +280,7 @@ function AdminProduct() {
                                                 <div className="w-15 h-15 mr-4">
                                                     <img className="w-15 h-15 object-contain" src={item.image} alt="" />
                                                 </div>
-                                                <p className="w-100 h-12 text-wrap truncate text-left">{item.title}</p>
+                                                <p className="w-100 h-12 text-wrap truncate text-left max-sm:flex max-sm:items-center">{item.title}</p>
                                             </div>
                                             <p className=" w-[23%]  max-sm:truncate">#{item._id}</p>
                                             <p className=" w-[13%] ">₹{item.price}</p>

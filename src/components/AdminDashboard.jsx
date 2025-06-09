@@ -99,7 +99,7 @@ function Dashboard({props}){
                 </div>
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
-                        <p className="w-10 h-10 bg-blue-950 p-1 rounded-lg mr-5 text-white flex justify-center items-center text-3xl max-lg:w-5 max-lg:h-5 max-lg:text-sm max-lg:rounded-sm">₹</p>
+                        <p className="w-10 h-10 bg-blue-950 p-1 rounded-lg mr-5 text-white flex justify-center items-center text-3xl max-lg:mr-1 max-lg:w-5 max-lg:h-5 max-lg:text-sm max-lg:rounded-sm">₹</p>
                         <p className=" font-bold">₹{total}</p>
                     </div>
                     <p className='text-green-400'>↑23%</p>
@@ -182,12 +182,12 @@ function Dashboard({props}){
                                 <tr key={datas.data._id} className="border-b-2 border-gray-300 text-sm h-20 flex justify-between items-center max-lg:text-xs max-md:text-[0.5rem] max-sm:text-[0.4rem]">
                                     <td className='flex justify-center items-center '>
                                         <img className='w-15 h-15 object-contain max-sm:w-7 max-sm:h-7' src={datas.item.image} alt="" />
-                                        <p className='w-30 h-10 text-wrap truncate text-left max-sm:w-10 max-md:w-15 max-lg:h-8'>{datas.item.title}</p>
+                                        <p className='w-30 h-10 text-wrap truncate text-left max-sm:w-10 max-md:w-15 max-lg:h-8 max-sm:h-13'>{datas.item.title}</p>
                                     </td>
-                                    <td className=' -ml-25 max-md:-ml-15 max-sm:-ml-10'><p className=''>{datas.data.quantity}</p></td>
-                                    <td className='-ml-5 max-sm:-ml-5'><p className='w-20 h-10 text-wrap truncate max-sm:w-10'>#{datas.data._id}</p></td>
-                                    <td className='-ml-10'><p className='w-20 h-10 text-wrap truncate max-sm:w-10'>{datas.data.createdAt}</p></td>
-                                    <td className='-ml-10'><p className='w-20 h-10 text-wrap truncate max-sm:w-10'>#{datas.data.user_id}</p></td>
+                                    <td className=' -ml-25 max-md:-ml-15 max-sm:-ml-10'><p className='max-sm:h-fit'>{datas.data.quantity}</p></td>
+                                    <td className='-ml-5 max-sm:-ml-5'><p className='w-20 h-10 text-wrap truncate max-sm:w-10 max-sm:h-fit'>#{datas.data._id}</p></td>
+                                    <td className='-ml-10'><p className='w-20 h-10 text-wrap truncate max-sm:w-10 max-sm:h-fit'>{datas.data.createdAt}</p></td>
+                                    <td className='-ml-10'><p className='w-20 h-10 text-wrap truncate max-sm:w-10 max-sm:h-fit'>#{datas.data.user_id}</p></td>
                                     <td>₹{datas.item.price*datas.data.quantity}</td>
                                 </tr>
                             ))
