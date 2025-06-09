@@ -84,7 +84,7 @@ function AdminPanel(){
         <div className="flex justify-end bg-white">
             <aside className={`bg-white border-r border-gray-400 w-[15vw] h-[100vh] flex flex-col items-center fixed left-0 ${isOpen?" max-lg:hidden":"block"} max-lg:w-full max-lg:z-20 max-lg:items-start max-lg:h-fit`}>
                 
-                <div className=" m-4 w-45 flex flex-col">
+                <div className=" m-4 w-[100%] flex flex-col max-lg:w-40">
                     <button className={`my-2  p-2 rounded-md flex ${asidePage==="dashboard"&&"bg-cyan-600 text-white"}`} onClick={()=>{
                         setAsidePage("dashboard")
                     }}>Dashboard</button>

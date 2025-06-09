@@ -275,7 +275,7 @@ function AdminProduct() {
                                         </div>
             
                                         <div  className="h-20 flex justify-between items-center border-b-2 border-gray-400 relative max-lg:text-xs max-sm:text-[0.5rem]">
-                                            
+                                
                                             <div className="flex w-[42%]">
                                                 <div className="w-15 h-15 mr-4">
                                                     <img className="w-15 h-15 object-contain" src={item.image} alt="" />
