@@ -13,8 +13,8 @@ function AdminOrder({props}) {
                             <h3 className="text-2xl font-bold max-lg:text-lg">All Recent Purchases</h3>
                         </div>
                         <table className="w-[90%] text-center">
-                            <thead className="border-b-2 border-gray-300 text-xl opacity-40 max-lg:text-sm max-sm:text-[0.5rem]">
-                                <tr className="h-20 flex justify-between items-center max-sm:p-2">
+                            <thead className="border-b-2 border-gray-300 text-xl opacity-40 w-[100%] max-lg:text-sm max-sm:text-[0.5rem]">
+                                <tr className="h-20 flex justify-between items-center max-sm:p-2 max-lg:w-[100%]">
                                     <th>Product</th>
                                     <th>Quantity</th>
                                     <th>Order ID</th>
@@ -26,7 +26,7 @@ function AdminOrder({props}) {
                             <tbody className="w-[100%] flex flex-col">
                                 {
                                     totalOrderDetails.map((datas)=>(
-                                        <tr key={datas.data._id} className="border-b-2 border-gray-300 text-sm h-20 flex justify-between items-center max-lg:text-xs max-sm:text-[0.4rem] w-[full]">
+                                        <tr key={datas.data._id} className="w-[100%] border-b-2 border-gray-300 text-sm h-20 flex justify-between items-center max-lg:text-xs max-sm:text-[0.4rem]">
                                             <td className="flex w-[20%]">
                                                 <img className="w-10 h-10 object-contain max-sm:w-6 max-sm:h-6" src={datas.item.image} alt="" />
                                                 <p className=' h-10 text-wrap truncate text-left ml-2 max-sm:ml-1 w-full'>{datas.item.title}</p>
