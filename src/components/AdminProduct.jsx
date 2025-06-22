@@ -4,7 +4,6 @@ import { UserContext } from "./context";
 function AdminProduct() {
     const {datas,refresh,setRefresh}=useContext(UserContext)
     
-
     async function AddQuantity(data,quantity){
         try {
             let respose = await fetch("https://supamart-v-backend.onrender.com/products/UpdateQuantityByAdding",{

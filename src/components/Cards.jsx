@@ -4,11 +4,13 @@ import Pink_heart from "../assets/pink_heart.png"
 import { useContext, useEffect } from "react";
 
 import { UserContext } from "./context.js";
+import Skeleton from "./skelatonloading.jsx";
+import SkeletonLoading from "./skelatonloading.jsx";
 
 
 function Cards({data}){
     
-    const {WishListItem,setWishListItem ,Auth,setAuth,user}=useContext(UserContext)
+    const {WishListItem,setWishListItem ,Auth,setAuth,user,datas}=useContext(UserContext)
 
 
     function wishList(data){
@@ -57,6 +59,7 @@ function Cards({data}){
         }
         return str;
     }
+    
     return (<>
                              
     <div className={`w-64 max-lg:w-40 h-80 max-lg:h-50 m-4 rounded-lg shadow-lg overflow-hidden bg-white ${data?.quantity<=0&&" opacity-20"}`} key={data?._id}>
