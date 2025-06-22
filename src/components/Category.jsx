@@ -22,7 +22,7 @@ function Category({props}){
             <p  className=" flex justify-center text-3xl pt-4 font-bold text-cyan-800 max-lg:text-xl">
                 BEST {bestOf.toUpperCase()}
             </p>
-            <div className="flex overflow-x-scroll overflow-y-hidden pl-5">
+            <div className="flex overflow-x-scroll overflow-y-hidden pl-5 max-lg:pl-2">
             {
             datas.length==0?
             Array(10).fill(0).map((item,i)=>(
