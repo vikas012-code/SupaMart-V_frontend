@@ -2,12 +2,10 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "./context"
 
 function AdminUser({props}) {
-
     const [totalOrder,totalOrderDetails,total]=props
 
     const {refresh,setRefresh}=useContext(UserContext)
     
-
     const [totalusers,setTotalUsers]=useState([])
 
     useEffect(()=>{
@@ -38,7 +36,7 @@ function AdminUser({props}) {
         }
       }
       //console.log(totalOrderDetails)
-
+      
       function totalsingleUserOrders(id){
         let totalsigleOrders=0
         for(let i=0;i<totalOrderDetails.length;i++){
@@ -107,5 +105,4 @@ function AdminUser({props}) {
             </div>
     )
 }
-
 export default AdminUser;

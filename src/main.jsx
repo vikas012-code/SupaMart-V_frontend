@@ -2,21 +2,42 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
-import Product from './components/Product.jsx'
-import Body from './components/Body.jsx'
+import { lazy, Suspense } from 'react';
+
+// import Product from './components/Product.jsx'
+// import Body from './components/Body.jsx'
+// import Cart from './components/Cart.jsx';
+// import CheckOut from './components/CheckOut.jsx';
+// import ShippingDetails from './components/ShippingDetails.jsx';
+// import PaymentDetails from './components/PaymentDetails.jsx';
+// import OrderedPlaced from './components/OrderPlaced.jsx';
+// import MyAccount from './components/MyAccount.jsx';
+// import AboutUsPage from './components/AboutUsPage.jsx';
+// import Cancellation from './components/CancellationPage.jsx';
+// import PrivacyAndPolicy from './components/PrivacyAndPolicy.jsx';
+// import TermsAndCondition from './components/TermsAndCondition.jsx';
+
 import Category from './components/Category.jsx'
 import HeroPage from './components/HeroPage.jsx'
-import Cart from './components/Cart.jsx';
-import CheckOut from './components/CheckOut.jsx';
-import ShippingDetails from './components/ShippingDetails.jsx';
-import PaymentDetails from './components/PaymentDetails.jsx';
-import OrderedPlaced from './components/OrderPlaced.jsx';
-import LoginPage from './components/LoginPage.jsx';
-import MyAccount from './components/MyAccount.jsx';
-import AboutUsPage from './components/AboutUsPage.jsx';
-import Cancellation from './components/CancellationPage.jsx';
-import PrivacyAndPolicy from './components/PrivacyAndPolicy.jsx';
-import TermsAndCondition from './components/TermsAndCondition.jsx';
+import Loading from './components/Loading.jsx';
+
+
+
+const Body = lazy(()=> import("./components/Body.jsx"))
+const Product = lazy(()=> import("./components/Product.jsx"))
+const Cart = lazy(()=> import("./components/Cart.jsx"))
+const CheckOut = lazy(()=> import("./components/CheckOut.jsx"))
+const ShippingDetails = lazy(()=> import("./components/ShippingDetails.jsx"))
+const PaymentDetails = lazy(()=> import("./components/PaymentDetails.jsx"))
+const OrderedPlaced = lazy(()=> import("./components/OrderPlaced.jsx"))
+const MyAccount = lazy(()=> import("./components/MyAccount.jsx"))
+const AboutUsPage = lazy(()=> import("./components/AboutUsPage.jsx"))
+const Cancellation = lazy(()=> import("./components/CancellationPage.jsx"))
+const PrivacyAndPolicy = lazy(()=> import("./components/PrivacyAndPolicy.jsx"))
+const TermsAndCondition = lazy(()=> import("./components/TermsAndCondition.jsx"))
+
+
+
 
 const Router = createBrowserRouter([
   {
@@ -36,7 +57,7 @@ const Router = createBrowserRouter([
       },
       {
         path :"/body",
-        element : <Body/>
+        element : <Suspense fallback={<Loading/>} ><Body/></Suspense>
       },
       {
         path :"/body/:category",
@@ -44,52 +65,52 @@ const Router = createBrowserRouter([
       },
       {
         path :"/product/:_id",
-        element :<Product/>
+        element :<Suspense fallback={<Loading/>} ><Product/></Suspense>
       },
       {
         path :"/cart",
-        element :<Cart/>
+        element :<Suspense fallback={<Loading/>} ><Cart/></Suspense>
       },
       {
         path :"/checkout",
-        element :<CheckOut/>,
+        element :<Suspense fallback={<Loading/>} ><CheckOut/></Suspense>,
         children:[
           {
             path:"/checkout",
-            element:<ShippingDetails/>
+            element:<Suspense fallback={<Loading/>} ><ShippingDetails/></Suspense>
           },
           {
             path:"/checkout/PaymentDetails",
-            element:<PaymentDetails/>
+            element:<Suspense fallback={<Loading/>} ><PaymentDetails/></Suspense>
           },
           {
             path:"/checkout/OrderedPlaced",
-            element:<OrderedPlaced/>
+            element:<Suspense fallback={<Loading/>} ><OrderedPlaced/></Suspense>
           }
         ]
       }
       ,{
         path:"/account",
-        element:<MyAccount/>
+        element:<Suspense fallback={<Loading/>} ><MyAccount/></Suspense>
       }
       ,{
         path:"/aboutus",
-        element:<AboutUsPage/>
+        element:<Suspense fallback={<Loading/>} ><AboutUsPage/></Suspense>
       }
       ,
       {
         path:"/cancellation",
-        element:<Cancellation/>
+        element:<Suspense fallback={<Loading/>} ><Cancellation/></Suspense>
       }
       ,
       {
         path:"/privacyandpolicy",
-        element:<PrivacyAndPolicy/>
+        element:<Suspense fallback={<Loading/>} ><PrivacyAndPolicy/></Suspense>
       }
       ,
       {
         path:"/termsandcondition",
-        element:<TermsAndCondition/>
+        element:<Suspense fallback={<Loading/>} ><TermsAndCondition/></Suspense>
       }
     ]
   }

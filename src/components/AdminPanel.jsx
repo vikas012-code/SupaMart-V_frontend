@@ -8,7 +8,6 @@ import { useContext, useEffect, useState } from 'react';
 import { UserContext } from './context';
 import AdminUser from "./AdminUser"
 
-
 function AdminPanel(){
     const[asidePage,setAsidePage]=useState("dashboard")
 
@@ -27,7 +26,6 @@ function AdminPanel(){
         .catch((err)=> console.log(err))
     },[])
 
-
     function totalOrderAdding(data){
         for(let i=0;i<datas.length;i++){
             if(datas[i]._id===data.product_id){
@@ -37,15 +35,11 @@ function AdminPanel(){
         }
     }
        
-        
         if(totalOrderDetails<totalOrder){
             for(let i=0;i<totalOrder.length;i++){
             //console.log(Ordered[i])
             totalOrderAdding(totalOrder[i])
         }}
-        
-       
-       
 
         if(totalOrderDetails.length>0){
             for(let i=0;i<totalOrderDetails.length;i++){
@@ -54,7 +48,6 @@ function AdminPanel(){
         }
 
         const [isOpen,setIsOpen]=useState(true)
-
     
     return <>
         <nav className=" bg-white p-2 h-20 flex justify-between items-center sticky top-0 z-20">
@@ -100,7 +93,6 @@ function AdminPanel(){
                 </div>
             </aside>
             <div className="w-[86vw]  bg-gray-100 max-lg:w-full">
-                
                 {
                     asidePage==="dashboard" && <Dashboard props={[totalOrder,totalOrderDetails,total]}/>
                     ||
