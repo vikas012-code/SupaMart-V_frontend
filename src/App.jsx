@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import LoginPage from "./components/LoginPage"
 import AdminPanel from "./components/AdminPanel"
 import Cookies from 'js-cookie'
+import ServerError from "./components/ServerError"
 
 
 function App() {
@@ -77,11 +78,19 @@ const [ShippingAddress,setShippingAddress]=useState({
 })
 
 
+const [serverIsOk,SetServerIsOk]=useState(true)
+
   useEffect(()=>{
     fetch("https://supamart-v-backend.onrender.com/products")
     .then((res)=> res.json())
-    .then((res)=>setDatas(res))
-    .catch((err)=>{console.log(err)})
+    .then((res)=>{
+      setDatas(res)
+      SetServerIsOk(true)
+    })
+    .catch((err)=>{
+      console.log(err)
+      SetServerIsOk(false)
+    })
   },[Ordered,refresh])
 
 
@@ -158,7 +167,7 @@ useEffect(()=>{
         }
     },[])
 
-
+// console.log(datas)
 const value={datas,searchItem,setSearchItem,cartItem ,setCartItem,cartQuantity,setCartQuantity,total,setTotal,ShippingAddress,setShippingAddress,ProgressBar,setProgressBar,
   Auth,setAuth,Ordered,setOrdered,WishListItem,setWishListItem,user,setUser,section,setSection,refresh,setRefresh}
 
@@ -166,22 +175,22 @@ const value={datas,searchItem,setSearchItem,cartItem ,setCartItem,cartQuantity,s
   if(user.Email==="admin@gmail.com" && user.Password==="admin"){
     return (
         <UserContext.Provider value={value}>
-        <div className={`${Auth===null?" pointer-events-none opacity-60":""}`}>
-        <AdminPanel/>
-        </div>
-        <LoginPage/>
+          <div className={`${Auth===null?" pointer-events-none opacity-60":""}`}>
+            <AdminPanel/>
+          </div>
+          <LoginPage/>
         </UserContext.Provider>
       )
   }
   else{
     return (
         <UserContext.Provider value={value}>
-        <div className={`${Auth===null?" pointer-events-none opacity-60":""}`}>
-          <Navbar/>
-          <Outlet/>
-          <Footer/>
-        </div>
-        <LoginPage/>
+          <div className={`${Auth===null?" pointer-events-none opacity-60":""}`}>
+            <Navbar/>
+            {serverIsOk?<Outlet/>:<ServerError/>}
+            <Footer/>
+          </div>
+          <LoginPage/>
         </UserContext.Provider>
       )
 
