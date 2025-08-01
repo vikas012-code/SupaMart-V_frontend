@@ -45,10 +45,6 @@ const [user,setUser]=useState({
 const cookie=Cookies.get("UserAuth")
 
 
-//admin@gmail.com
-//admin
-
-
 useEffect(()=>{
   if(cookie){
     const CookieAuth=JSON.parse(cookie)

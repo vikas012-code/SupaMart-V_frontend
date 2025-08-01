@@ -30,7 +30,7 @@ function AdminPanel(){
     function totalOrderAdding(data){
         for(let i=0;i<datas.length;i++){
             if(datas[i]._id===data.product_id){
-                setTotalOrderDetails((previousData)=>([...previousData,{item:datas[i] ,data:data} ]))
+                setTotalOrderDetails((previousData)=>[...previousData,{item:datas[i] ,data:data} ])
                 return
             }
         }
@@ -52,7 +52,7 @@ function AdminPanel(){
 
         const [ProductIsUploading,setProductIsUploading]=useState(false)
 
-    
+    // console.log(totalOrderDetails)
     return <>
         {
             ProductIsUploading
@@ -105,13 +105,13 @@ function AdminPanel(){
             </aside>
             <div className="w-[86vw]  bg-gray-100 max-lg:w-full">
                 {
-                    asidePage==="dashboard" && <Dashboard props={[totalOrder,totalOrderDetails,total]}/>
+                    asidePage==="dashboard" && <Dashboard props={{totalOrder,totalOrderDetails,total}}/>
                     ||
                     asidePage==="product" && <AdminProduct setProductIsUploading={setProductIsUploading} />
                     ||
-                    asidePage==="order" && <AdminOrder props={[totalOrderDetails,total]}/>
+                    asidePage==="order" && <AdminOrder props={{totalOrderDetails,total}}/>
                     ||
-                    asidePage==="users" && <AdminUser props={[totalOrder,totalOrderDetails,total,setProductIsUploading]}/>
+                    asidePage==="users" && <AdminUser props={{totalOrder,totalOrderDetails,total,setProductIsUploading}}/>
 
                 }
             </div>
