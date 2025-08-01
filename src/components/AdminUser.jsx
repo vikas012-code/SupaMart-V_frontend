@@ -58,8 +58,7 @@ function AdminUser({props}) {
         }
         return totalsigleOrdersprice
       }
-
-        // console.log(totalOrderDetails)
+    // console.log(totalOrderDetails)
 
     return (
         <div className="pb-10 mt-10 flex flex-col items-center  gap-5">
