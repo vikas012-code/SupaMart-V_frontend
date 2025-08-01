@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { UserContext } from "./context";
+import Loading from "./Loading";
 
-function AdminProduct() {
-    const {datas,refresh,setRefresh}=useContext(UserContext)
+function AdminProduct({setProductIsUploading}) {
+    const {datas,setRefresh}=useContext(UserContext)
     
     async function AddQuantity(data,quantity){
         try {
@@ -18,7 +19,7 @@ function AdminProduct() {
             })
         let res=await respose.json()
         console.log(res)
-        setRefresh(refresh+1)
+        setRefresh(prev=> !prev)
         } catch (error) {
             console.log(error)
         }
@@ -43,6 +44,7 @@ function AdminProduct() {
     })
 
     async function AddNewProduct(){
+        setProductIsUploading(true)
         try {
             respose = await fetch("https://supamart-v-backend.onrender.com/products",{
                 method: "POST",
@@ -65,11 +67,13 @@ function AdminProduct() {
             })
         let res= await respose.json()
         console.log(res)
-        setRefresh(refresh+1)
+        setRefresh(prev=> !prev)
+        setProductIsUploading(false)
         return true
         
         } catch (error) {
             console.log(error)
+            setProductIsUploading(false)
             return false
         }
     }
@@ -242,6 +246,7 @@ function AdminProduct() {
                                             <div className="flex justify-center items-center border border-gray-300 h-8 duration-300">
                                                     <button className=" bottom-4 border-x border-gray-300 h-8 px-2 active:bg-cyan-400 active:text-white" onClick={()=>{
                                                         setQuantity(0)
+                                                        setRefresh(prev=> !prev)
                                                     }}>
                                                     <p className="text-red-500 text-4xl relative bottom-2">x</p>
                                                     </button> 
@@ -267,6 +272,7 @@ function AdminProduct() {
                                                         quantity>0&&
                                                         AddQuantity(item,quantity)
                                                         setQuantity(0)
+                                                        setRefresh(prev=> !prev)
                                                     }}>
                                                         <p className="relative bottom-1">✓</p>
                                                     </button>

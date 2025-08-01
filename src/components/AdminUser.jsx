@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "./context"
 
 function AdminUser({props}) {
-    const [totalOrder,totalOrderDetails,total]=props
+    const [totalOrderDetails,setProductIsUploading]=props
 
     const {refresh,setRefresh}=useContext(UserContext)
     
@@ -16,6 +16,7 @@ function AdminUser({props}) {
     },[refresh])
     
     function DeleteAccount(UserID){
+        setProductIsUploading(true)
         try {
           fetch("https://supamart-v-backend.onrender.com/user/deleteuserbyid",
             {
@@ -30,9 +31,11 @@ function AdminUser({props}) {
           .then((respone) => respone.json())
           .then((res)=> {console.log(res)} )
           .catch((err)=>{console.log(err)})
-          setRefresh(refresh+1)
+          setRefresh(prev=> !prev)
+          setProductIsUploading(false)
         } catch (error) {
           console.log(error)
+          setProductIsUploading(false)
         }
       }
       //console.log(totalOrderDetails)

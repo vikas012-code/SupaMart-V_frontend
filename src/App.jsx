@@ -172,10 +172,10 @@ const value={datas,searchItem,setSearchItem,cartItem ,setCartItem,cartQuantity,s
   Auth,setAuth,Ordered,setOrdered,WishListItem,setWishListItem,user,setUser,section,setSection,refresh,setRefresh}
 
 
-  if(user.Email==="admin@gmail.com" && user.Password==="admin"){
+  if(Auth==="admin"){
     return (
         <UserContext.Provider value={value}>
-          <div className={`${Auth===null?" pointer-events-none opacity-60":""}`}>
+          <div className={`relative ${Auth===null?" pointer-events-none opacity-60":""}`}>
             <AdminPanel/>
           </div>
           <LoginPage/>
@@ -193,7 +193,6 @@ const value={datas,searchItem,setSearchItem,cartItem ,setCartItem,cartQuantity,s
           <LoginPage/>
         </UserContext.Provider>
       )
-
   }
 }
 

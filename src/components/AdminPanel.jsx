@@ -7,6 +7,7 @@ import AdminOrder from "./AdminOrder"
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from './context';
 import AdminUser from "./AdminUser"
+import Loading from "./Loading"
 
 function AdminPanel(){
     const[asidePage,setAsidePage]=useState("dashboard")
@@ -48,8 +49,18 @@ function AdminPanel(){
         }
 
         const [isOpen,setIsOpen]=useState(true)
+
+        const [ProductIsUploading,setProductIsUploading]=useState(false)
+
     
     return <>
+        {
+            ProductIsUploading
+            &&
+            <div className='fixed top-0 w-[99vw] h-[100vh] z-50 cursor-progress  backdrop-blur-[1px] backdrop-brightness-80'>
+            <Loading/>
+            </div>
+        }
         <nav className=" bg-white p-2 h-20 flex justify-between items-center sticky top-0 z-20">
             <div className=" h-20 w-45 flex justify-center items-center">
                 <img className="w-10 h-10 " src={smartphone} alt="mobileshop"/> 
@@ -96,11 +107,11 @@ function AdminPanel(){
                 {
                     asidePage==="dashboard" && <Dashboard props={[totalOrder,totalOrderDetails,total]}/>
                     ||
-                    asidePage==="product" && <AdminProduct />
+                    asidePage==="product" && <AdminProduct setProductIsUploading={setProductIsUploading} />
                     ||
                     asidePage==="order" && <AdminOrder props={[totalOrderDetails,total]}/>
                     ||
-                    asidePage==="users" && <AdminUser props={[totalOrder,totalOrderDetails,total]}/>
+                    asidePage==="users" && <AdminUser props={[totalOrder,totalOrderDetails,total,setProductIsUploading]}/>
 
                 }
             </div>

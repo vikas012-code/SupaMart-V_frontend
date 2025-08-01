@@ -123,6 +123,12 @@ function LoginPage(){
             
         } catch (error) 
         {
+            setFormData({...formData,
+                    UserName:"",
+                    Email:"",
+                    Password:""
+                })
+                setPassCorrect(false)
             console.log(error)
         }
           
@@ -291,24 +297,15 @@ function LoginPage(){
                     </>
                     }
 
-
-
-
-
                     <p className="ml-2 text-sm text-gray-300 w-60">Username and Password must be more the 4 characters and unique </p>
                     
-                    
-
-
-
-
                     <div className="flex justify-around">
                     {
                         formType=="login" 
                         && 
                         <div className="flex flex-col items-center gap-2 relative">
                             <button className=" mt-6 rounded-sm bg-blue-400 text-white  hover:bg-green-400 duration-300 w-23" onClick={(e)=>{   
-                            formData.Email==="admin@gmail.com"?setUser({...user,UserName:"admin",Email:formData.Email,Password:formData.Password}) || setAuth("admin") 
+                            formData.Email===import.meta.env.VITE_Admin_Name && formData.Password===import.meta.env.VITE_Admin_Password?setUser({...user,UserName:"admin"}) || setAuth("admin") 
                             || setFormData({...formData,
                                 UserName:"",
                                 Email:"",
@@ -318,7 +315,7 @@ function LoginPage(){
                             formData.Password.length>4 
                             && 
                             loginData()
-                        
+                    
                         }}>Login</button>
                         <p className="">Don't have Account?<a className="cursor-pointer text-green-600 hover:underline" onClick={()=>{
                             setFormType("sign up")
@@ -381,7 +378,6 @@ function LoginPage(){
                             formData.Password.length>4 && SaveNewPassword()
                             }}>save</button>
                         </div>
-
                     }
                     
                     </div>
