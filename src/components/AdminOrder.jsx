@@ -1,6 +1,6 @@
 function AdminOrder({props}) {
 
-    const [totalOrderDetails]=props
+    const {totalOrderDetails}=props
 
 
     return (

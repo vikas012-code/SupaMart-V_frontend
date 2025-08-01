@@ -6,7 +6,7 @@ import order_icon from "../assets/icon-order.png"
 
 function Dashboard({props}){
 
-    const [totalOrder,totalOrderDetails,total]=props
+    const {totalOrder,totalOrderDetails,total}=props
 
     let newdate=Date()
 

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "./context"
 
 function AdminUser({props}) {
-    const [totalOrderDetails,setProductIsUploading]=props
+    const {totalOrderDetails,setProductIsUploading}=props
 
     const {refresh,setRefresh}=useContext(UserContext)
     
@@ -38,7 +38,6 @@ function AdminUser({props}) {
           setProductIsUploading(false)
         }
       }
-      //console.log(totalOrderDetails)
       
       function totalsingleUserOrders(id){
         let totalsigleOrders=0
@@ -59,6 +58,8 @@ function AdminUser({props}) {
         }
         return totalsigleOrdersprice
       }
+
+        // console.log(totalOrderDetails)
 
     return (
         <div className="pb-10 mt-10 flex flex-col items-center  gap-5">
