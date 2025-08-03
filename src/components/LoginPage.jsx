@@ -69,15 +69,7 @@ function LoginPage(){
 
     async function loginData() {
         try {
-            const response = await fetch("https://supamart-v-backend.onrender.com/user/getuserbyemail", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email:formData.Email,
-                }),
-              });
+            const response = await fetch(`https://supamart-v-backend.onrender.com/user/${formData.Email}`);
               if(response.ok){
                 const res=await response.json()
                 //console.log(res)

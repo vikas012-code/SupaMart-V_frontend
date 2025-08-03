@@ -94,16 +94,7 @@ useEffect(() =>{
   //console.log("wishlist calling..")
   if(user._id){
     try {
-      fetch("https://supamart-v-backend.onrender.com/wishlists/byId",
-        {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ 
-            _id: user._id 
-        }),
-      })
+      fetch(`https://supamart-v-backend.onrender.com/wishlists/${user._id}`)
       .then((respone) => respone.json())
       .then((res)=> {
           //console.log(res) 
@@ -125,25 +116,13 @@ useEffect(() =>{
 
 
 useEffect(() =>{
-  //console.log("order calling..")
   if(user._id){
   try {
-    fetch("https://supamart-v-backend.onrender.com/orders/byId",
-      {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ 
-          _id: user._id 
-      }),
-    })
+    fetch(`https://supamart-v-backend.onrender.com/orders/${user._id}`)
     .then((respone) => respone.json())
     .then((res)=> {
-      //console.log(res) 
       return setOrdered(res)})
     .catch((err)=>{console.log(err)})
-    //console.log(WishListItem.length)
   } catch (error) {
     console.log(error)
   }
@@ -163,7 +142,6 @@ useEffect(()=>{
         }
     },[])
 
-// console.log(datas)
 const value={datas,searchItem,setSearchItem,cartItem ,setCartItem,cartQuantity,setCartQuantity,total,setTotal,ShippingAddress,setShippingAddress,ProgressBar,setProgressBar,
   Auth,setAuth,Ordered,setOrdered,WishListItem,setWishListItem,user,setUser,section,setSection,refresh,setRefresh}
 
