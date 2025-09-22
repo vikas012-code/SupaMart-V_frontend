@@ -118,7 +118,7 @@ useEffect(() =>{
 useEffect(() =>{
   if(user._id){
   try {
-    fetch(`https://supamart-v-backend.onrender.com/orders/${user._id}`)
+    fetch(`https://supamart-v-backend.onrender.com/orders/OrderById/${user._id}`)
     .then((respone) => respone.json())
     .then((res)=> {
       return setOrdered(res)})
