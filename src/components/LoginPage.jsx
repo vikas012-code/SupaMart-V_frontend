@@ -69,7 +69,7 @@ function LoginPage(){
 
     async function loginData() {
         try {
-            const response = await fetch(`https://supamart-v-backend.onrender.com/user/${formData.Email}`);
+            const response = await fetch(`https://supamart-v-backend.onrender.com/user/verify/${formData.Email}`);
               if(response.ok){
                 const res=await response.json()
                 //console.log(res)
