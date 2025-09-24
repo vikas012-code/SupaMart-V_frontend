@@ -19,6 +19,7 @@ import { lazy, Suspense } from 'react';
 
 import Loading from './components/Loading.jsx';
 import HomePage from './components/HomePage.jsx';
+import ScrollTop from './components/ScrollTop.jsx';
 
 
 
@@ -40,71 +41,76 @@ const TermsAndCondition = lazy(()=> import("./components/TermsAndCondition.jsx")
 
 const Router = createBrowserRouter([
   {
-    path : "/",
-    element : <App/>,
-    children : [
+    element: <ScrollTop />, // 👈 wrapper with scroll fix
+    children: [
       {
-       path : "/" ,
-       element : <HomePage/>
-      },
-      {
-        path :"/ProductCards",
-        element : <Suspense fallback={<Loading/>} ><ProductCards/></Suspense>
-      },
-      {
-        path :"/ProductCards/:category",
-        element : <Suspense fallback={<Loading/>} ><ProductCards/></Suspense>
-      },
-      {
-        path :"/product/:_id",
-        element :<Suspense fallback={<Loading/>} ><Product/></Suspense>
-      },
-      {
-        path :"/cart",
-        element :<Suspense fallback={<Loading/>} ><Cart/></Suspense>
-      },
-      {
-        path :"/checkout",
-        element :<Suspense fallback={<Loading/>} ><CheckOut/></Suspense>,
-        children:[
-          {
-            path:"/checkout",
-            element:<Suspense fallback={<Loading/>} ><ShippingDetails/></Suspense>
-          },
-          {
-            path:"/checkout/PaymentDetails",
-            element:<Suspense fallback={<Loading/>} ><PaymentDetails/></Suspense>
-          },
-          {
-            path:"/checkout/OrderedPlaced",
-            element:<Suspense fallback={<Loading/>} ><OrderedPlaced/></Suspense>
-          }
-        ]
+      path : "/",
+      element : <App/>,
+      children : [
+        {
+        path : "/" ,
+        element : <HomePage/>
+        },
+        {
+          path :"/ProductCards",
+          element : <Suspense fallback={<Loading/>} ><ProductCards/></Suspense>
+        },
+        {
+          path :"/ProductCards/:category",
+          element : <Suspense fallback={<Loading/>} ><ProductCards/></Suspense>
+        },
+        {
+          path :"/product/:_id",
+          element :<Suspense fallback={<Loading/>} ><Product/></Suspense>
+        },
+        {
+          path :"/cart",
+          element :<Suspense fallback={<Loading/>} ><Cart/></Suspense>
+        },
+        {
+          path :"/checkout",
+          element :<Suspense fallback={<Loading/>} ><CheckOut/></Suspense>,
+          children:[
+            {
+              path:"/checkout",
+              element:<Suspense fallback={<Loading/>} ><ShippingDetails/></Suspense>
+            },
+            {
+              path:"/checkout/PaymentDetails",
+              element:<Suspense fallback={<Loading/>} ><PaymentDetails/></Suspense>
+            },
+            {
+              path:"/checkout/OrderedPlaced",
+              element:<Suspense fallback={<Loading/>} ><OrderedPlaced/></Suspense>
+            }
+          ]
+        }
+        ,{
+          path:"/account",
+          element:<Suspense fallback={<Loading/>} ><MyAccount/></Suspense>
+        }
+        ,{
+          path:"/aboutus",
+          element:<Suspense fallback={<Loading/>} ><AboutUsPage/></Suspense>
+        }
+        ,
+        {
+          path:"/cancellation",
+          element:<Suspense fallback={<Loading/>} ><Cancellation/></Suspense>
+        }
+        ,
+        {
+          path:"/privacyandpolicy",
+          element:<Suspense fallback={<Loading/>} ><PrivacyAndPolicy/></Suspense>
+        }
+        ,
+        {
+          path:"/termsandcondition",
+          element:<Suspense fallback={<Loading/>} ><TermsAndCondition/></Suspense>
+        }
+      ]
       }
-      ,{
-        path:"/account",
-        element:<Suspense fallback={<Loading/>} ><MyAccount/></Suspense>
-      }
-      ,{
-        path:"/aboutus",
-        element:<Suspense fallback={<Loading/>} ><AboutUsPage/></Suspense>
-      }
-      ,
-      {
-        path:"/cancellation",
-        element:<Suspense fallback={<Loading/>} ><Cancellation/></Suspense>
-      }
-      ,
-      {
-        path:"/privacyandpolicy",
-        element:<Suspense fallback={<Loading/>} ><PrivacyAndPolicy/></Suspense>
-      }
-      ,
-      {
-        path:"/termsandcondition",
-        element:<Suspense fallback={<Loading/>} ><TermsAndCondition/></Suspense>
-      }
-    ]
+      ]
   }
 ])
 
