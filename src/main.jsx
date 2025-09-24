@@ -5,7 +5,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 // import Product from './components/Product.jsx'
-// import Body from './components/Body.jsx'
+// import Body from './components/ProductCards.jsx'
 // import Cart from './components/Cart.jsx';
 // import CheckOut from './components/CheckOut.jsx';
 // import ShippingDetails from './components/ShippingDetails.jsx';
@@ -17,13 +17,12 @@ import { lazy, Suspense } from 'react';
 // import PrivacyAndPolicy from './components/PrivacyAndPolicy.jsx';
 // import TermsAndCondition from './components/TermsAndCondition.jsx';
 
-import Category from './components/Category.jsx'
-import HeroPage from './components/HeroPage.jsx'
 import Loading from './components/Loading.jsx';
+import HomePage from './components/HomePage.jsx';
 
 
 
-const Body = lazy(()=> import("./components/Body.jsx"))
+const ProductCards = lazy(()=> import("./components/ProductCards.jsx"))
 const Product = lazy(()=> import("./components/Product.jsx"))
 const Cart = lazy(()=> import("./components/Cart.jsx"))
 const CheckOut = lazy(()=> import("./components/CheckOut.jsx"))
@@ -46,22 +45,15 @@ const Router = createBrowserRouter([
     children : [
       {
        path : "/" ,
-       element : 
-       <>
-        <HeroPage/>
-        <Category props={"mobile"}/>
-        <Category props={"TV"}/>
-        <Category props={"audio"}/>
-        <Category props={"gaming"}/>
-       </>
+       element : <HomePage/>
       },
       {
-        path :"/body",
-        element : <Suspense fallback={<Loading/>} ><Body/></Suspense>
+        path :"/ProductCards",
+        element : <Suspense fallback={<Loading/>} ><ProductCards/></Suspense>
       },
       {
-        path :"/body/:category",
-        element : <Body/>
+        path :"/ProductCards/:category",
+        element : <Suspense fallback={<Loading/>} ><ProductCards/></Suspense>
       },
       {
         path :"/product/:_id",

@@ -31,7 +31,7 @@ function HeroPage() {
         <div className=" absolute top-[15vw] text-center ml-10 ">
           <h3 className="text-lg  sm:text-4xl font-extrabold text-blue-600 text-start max-lg:text-[0.7rem]">Best Place <br />For Buying Gadget</h3>
           <p className="text-xs sm:text-lg mb-4 max-lg:text-[0.5rem]">best place to buy smartphones , Speaker ,<br />headphone , earphone and TV in budget</p>
-          <Link to={"/body"} className="text-xs sm:text-sm bg-blue-500 rounded-2xl p-2 text-white mr-5 max-lg:text-[0.5rem]">Shop Now</Link>
+          <Link to={"/ProductCards"} className="text-xs sm:text-sm bg-blue-500 rounded-2xl p-2 text-white mr-5 max-lg:text-[0.5rem]">Shop Now</Link>
         </div>
       </div>
 
@@ -41,7 +41,7 @@ function HeroPage() {
         <div className=" absolute top-[15vw] text-center ml-10">
           <h3 className="text-lg  sm:text-4xl font-extrabold text-blue-600 text-start max-lg:text-[0.7rem]">Best SmartPhone <br />With Great Deals</h3>
           <p className="text-xs sm:text-lg mb-4 max-lg:text-[0.5rem]">best place to buy smartphones , Iphones<br /> with great deals and offer</p>
-          <Link to={"/body/mobile"} className="text-xs sm:text-sm bg-blue-500 rounded-2xl p-2 text-white mr-5 max-lg:text-[0.5rem]">Shop Now</Link>
+          <Link to={"/ProductCards/mobile"} className="text-xs sm:text-sm bg-blue-500 rounded-2xl p-2 text-white mr-5 max-lg:text-[0.5rem]">Shop Now</Link>
         </div>
       </div>
 
@@ -51,7 +51,7 @@ function HeroPage() {
         <div className=" absolute top-[15vw] text-center ml-10">
           <h3 className="text-lg  sm:text-4xl font-extrabold text-blue-600 text-start max-lg:text-[0.7rem]">Best Audio Products<br />With Best Experience</h3>
           <p className="text-xs sm:text-lg mb-4 max-lg:text-[0.5rem]">best place to buy HeadPhone , Speaker ,<br />Earphone For best Music Experience</p>
-          <Link to={"/body/audio"} className="text-xs sm:text-sm bg-blue-500 rounded-2xl p-2 text-white mr-5 max-lg:text-[0.5rem]">Shop Now</Link>
+          <Link to={"/ProductCards/audio"} className="text-xs sm:text-sm bg-blue-500 rounded-2xl p-2 text-white mr-5 max-lg:text-[0.5rem]">Shop Now</Link>
         </div>
       </div>
 

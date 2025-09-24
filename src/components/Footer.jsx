@@ -27,11 +27,11 @@ function Footer(){
                 <h2  className="text-xl ">Popular Products Category</h2>
                 <hr className=" opacity-60" />
                 <ul className=" list-disc p-5">
-                    <li className=" hover:text-amber-400 duration-300"><Link to={"/body/audio"}>HeadPhones</Link></li>
-                    <li className=" hover:text-amber-400 duration-300"><Link to={"/body/mobile"}>Mobiles</Link></li>
-                    <li className=" hover:text-amber-400 duration-300"><Link to={"/body/gaming"}>Gamespad</Link></li>
-                    <li className=" hover:text-amber-400 duration-300"><Link to={"/body/tv"}>TV</Link></li>
-                    <li className=" hover:text-amber-400 duration-300"><Link to={"/body/audio"}>Speakers</Link></li>
+                    <li className=" hover:text-amber-400 duration-300"><Link to={"/ProductCards/audio"}>HeadPhones</Link></li>
+                    <li className=" hover:text-amber-400 duration-300"><Link to={"/ProductCards/mobile"}>Mobiles</Link></li>
+                    <li className=" hover:text-amber-400 duration-300"><Link to={"/ProductCards/gaming"}>Gamespad</Link></li>
+                    <li className=" hover:text-amber-400 duration-300"><Link to={"/ProductCards/tv"}>TV</Link></li>
+                    <li className=" hover:text-amber-400 duration-300"><Link to={"/ProductCards/audio"}>Speakers</Link></li>
                 </ul>
             </div>
             

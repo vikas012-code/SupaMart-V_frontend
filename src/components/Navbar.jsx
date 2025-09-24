@@ -17,7 +17,7 @@ function Navbar() {
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        navigate("/body")
+        navigate("/ProductCards")
     }
 
     const [isOpen,setIsOpen]=useState(true)
@@ -39,12 +39,12 @@ function Navbar() {
                 setCategoryOpen(!categoryOpen)
             }} >Category </button>
             <ul className={`transform transition-transform duration-300 ease-in-out ${categoryOpen?" invisible -translate-y-5":" visible"} bg-white absolute top-20 p-1 rounded-b-lg  z-10 max-lg:top-10 max-lg:left-0 `}>
-                <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/body/mobile" ><img className="w-20 inline" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGSWYehtNHc5FsdWJBLqfn_8hBC0kSqEymNg&s" alt="" />Mobiles</Link>
-                <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/body/audio"><img className="w-20 inline " src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUW33_AV3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1712255584873" alt="" />Headphones</Link>
-                <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/body/tv"><img className="w-20 inline " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk9cJPdKE_QpzvQvYUYdmT69WYq5VyGTNbxA&s" alt="" />TV</Link>
-                <Link className="block hover:scale-95 duration-200 " to="/body/gaming"><img className="w-20 inline " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjpkPv4DZbPXzKQrmtu8nxJSMeC1zGXAnIiA&s" alt="" />Gaming</Link>
+                <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/ProductCards/mobile" ><img className="w-20 inline" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGSWYehtNHc5FsdWJBLqfn_8hBC0kSqEymNg&s" alt="" />Mobiles</Link>
+                <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/ProductCards/audio"><img className="w-20 inline " src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MUW33_AV3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1712255584873" alt="" />Headphones</Link>
+                <Link className="border-b border-gray-300 block hover:scale-95 duration-200" to="/ProductCards/tv"><img className="w-20 inline " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk9cJPdKE_QpzvQvYUYdmT69WYq5VyGTNbxA&s" alt="" />TV</Link>
+                <Link className="block hover:scale-95 duration-200 " to="/ProductCards/gaming"><img className="w-20 inline " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjpkPv4DZbPXzKQrmtu8nxJSMeC1zGXAnIiA&s" alt="" />Gaming</Link>
             </ul>
-            <li className="flex items-center hover:text-blue-500 hover:scale-110 duration-300" ><Link to="body">What's new</Link></li>
+            <li className="flex items-center hover:text-blue-500 hover:scale-110 duration-300" ><Link to="ProductCards">What's new</Link></li>
             </ul>
 
             <div className="max-lg:-mt-5" >
@@ -57,7 +57,7 @@ function Navbar() {
             </div>
 
             <ul className="flex gap-5 justify-around items-center mr-4 max-lg:flex-col max-lg:items-start max-lg:mt-5">
-                <li className="hidden  max-lg:flex items-center hover:text-blue-500 hover:scale-110 duration-300" ><Link to="body">What's new</Link></li>
+                <li className="hidden  max-lg:flex items-center hover:text-blue-500 hover:scale-110 duration-300" ><Link to="ProductCards">What's new</Link></li>
 
                 <li><Link className="flex justify-center items-center gap-3 hover:text-blue-500 hover:scale-110 duration-300" to="/account" onClick={()=>{
                     setSection("mywishlist")
